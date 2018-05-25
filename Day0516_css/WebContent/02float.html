@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	/*여러 박스가 있을 때 가로 마진은 중복돼서 적용된다. 하지만 세로는 병합이 된다.
+	마진 10px짜리 상자 2개가 있으면 두 상자 사이의 거리는 20px이지만 세로로 놓으면 10px이 된다는 뜻*/
+		div{
+			margin: ;
+			padding: 10px;
+			float: left;
+		}
+		#box1{
+			background-color: yellow;
+			/* float: left; */
+		}
+		#box2{
+			background-color: aqua;
+			/* float: right; */
+		}
+		#box3{
+			background-color: green;
+			/* clear: both; */
+		}
+		#box4{
+			background-color: orange;
+			
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div id="box1">박스1</div>
+	<div id="box2">박스2</div>
+	<div id="box3">박스3</div>
+	<div id="box4">박스4</div>
+</body>
+</html>

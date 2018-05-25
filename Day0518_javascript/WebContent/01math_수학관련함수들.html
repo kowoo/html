@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Math</title>
+<script type="text/javascript">
+	/* 
+	var maxVal = Math.max(5,4,1,12,7,3);
+	alert(maxVal);
+	document.write(maxVal);
+						//5의 2제곱
+	var result = Math.pow(5,2);
+	document.write(result);
+	 */
+	 
+	//random(): 0~1사이의 난수 발생(0이상 1미만)
+	//var ranNum = Math.ceil(Math.random()*6);
+	//alert(ranNum);
+	
+	//가위 바위 보!
+	
+	var you = prompt("'가위', '바위', '보' 중 하나를 입력하세요! ");
+	var img1;
+	if(you=="가위") {
+		document.write('<div> <h2>당신</h2> <p> <img class = "img" alt = "가위" src="img/math_img_1.jpg"> </p> </div>');
+		//img1 = '<img class = "img" alt = "가위" src="img/math_img_1.jpg">';
+		you=1;
+	} else if(you=="바위") {
+		document.write('<div> <h2>당신</h2> <p> <img class = "img" alt = "바위" src="img/math_img_2.jpg"> </p> </div>');
+		//img1 = '<img class = "img" alt = "바위" src="img/math_img_2.jpg">';
+		you=2;
+	} else {
+		document.write('<div> <h2>당신</h2> <p> <img class = "img" alt = "보" src="img/math_img_3.jpg"> </p> </div>');
+		//img1 = '<img class = "img" alt = "보" src="img/math_img_3.jpg">';	
+		you=3;
+	}
+	var youprint = '<h2>당신</h2>'
+/* 	document.write(youprint);
+	var img = '<img class = "img" alt = "가위" src="img/math_img_1.jpg">';
+	var div = '<div>'+youprint+img+'</div>';
+	document.write(div);
+	document.write(img1); */
+	
+	var random = Math.ceil(Math.random()*3);
+	var img2;
+	if(random==1) {
+		document.write('<div> <h2>컴퓨터</h2> <p> <img class = "img" alt = "가위" src="img/math_img_1.jpg"> </p> </div>');
+		//img2 = '<img class = "img" alt = "가위" src="img/math_img_1.jpg">';			
+	} else if(random==2) {
+		document.write('<div> <h2>컴퓨터</h2> <p> <img class = "img" alt = "바위" src="img/math_img_2.jpg"> </p> </div>');
+		//img2 = '<img class = "img" alt = "바위" src="img/math_img_2.jpg">';				
+	} else {
+		document.write('<div> <h2>컴퓨터</h2> <p> <img class = "img" alt = "보" src="img/math_img_3.jpg"> </p> </div>');
+		//img2 = '<img class = "img" alt = "보" src="img/math_img_3.jpg">';	
+	}
+	var comprint = '<h2>컴퓨터</h2>'
+//	var div1 = '<div> <p>comprint img2</p> </div>'
+/* 	document.write(comprint);
+	document.write(img2); */
+		
+	
+	
+	if(you==random) {
+		document.write("무승부 입니다!");
+	} else if((you-ramdom)==-1) {
+		document.write("패배했군 애송이");
+	} else if((you==1) && (random==3)) {
+		document.write("승리하셨습니다!");
+	} else if((you==2) && (random==1)) {
+		document.write("승리하셨습니다!");
+	} else if((you==3) && (random==2)) {
+		document.write("승리하셨습니다!");
+	} else {
+		document.write("패배했군 애송이");
+	}
+	
+</script>
+
+<style type="text/css">
+	div{
+		display: inline-block;
+	}
+	.img{
+		margin: 50px;
+	}
+	h2{
+		margin-left: 200px;
+	}
+
+</style>
+
+
+</head>
+<body>
+	<!-- Math: 수학관련 함수를 제공하는 내장 객체 (함수==메서드라고 보면 된다)
+		최대, 최소, 반올림, 올림, 제곱, 난수
+		abs(): 절대값
+		max(), min(): 최대값, 최소값
+		round(): 반올림
+		ceil(): 올림		
+		floor(): 내림
+		pow(): 제곱
+		random(): 난수
+	-->
+	
+
+</body>
+</html>

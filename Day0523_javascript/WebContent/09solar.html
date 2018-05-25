@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>solar </title>
+	<style type="text/css">
+		h1{
+			position: absolute;
+			font-size: 8em;
+		}
+		
+		#sun{
+			left: 500px;
+			top : 400px;
+			color: red;
+		}
+	</style>
+	<script type="text/javascript">
+	
+	window.onload = function(){
+		var earthMove = 0;
+		var moonMove = 0;
+		
+		
+		var sun = document.getElementById("sun");
+		var earth1 = document.getElementById("earth1");
+		var earth2 = document.getElementById("earth2");
+		var earth3 = document.getElementById("earth3");
+		var earth4 = document.getElementById("earth4");
+		var earth5 = document.getElementById("earth5");
+		var earth6 = document.getElementById("earth6");
+		var earth7 = document.getElementById("earth7");
+		var earth8 = document.getElementById("earth8");
+		var earth9 = document.getElementById("earth9");
+		var earth10 = document.getElementById("earth10");
+		var moon = document.getElementById("moon");
+
+		setInterval(function() {
+			var earthLeft1= 500+250*Math.cos(earthMove+0.1);
+			var earthTop1 = 400+200*Math.sin(earthMove);
+			var earthLeft2= 500+270*Math.cos(earthMove+0.2);
+			var earthTop2 = 400+220*Math.sin(earthMove);
+			var earthLeft3= 500+290*Math.cos(earthMove+0.3);
+			var earthTop3 = 400+240*Math.sin(earthMove);
+			var earthLeft4= 500+305*Math.cos(earthMove+0.4);
+			var earthTop4 = 400+250*Math.sin(earthMove);
+			var earthLeft5= 500+330*Math.cos(earthMove+0.5);
+			var earthTop5 = 400+285*Math.sin(earthMove);
+			var earthLeft6= 500+350*Math.cos(earthMove+0.6);
+			var earthTop6 = 400+290*Math.sin(earthMove);
+			var earthLeft7= 500+355*Math.cos(earthMove+0.7);
+			var earthTop7 = 400+310*Math.sin(earthMove);
+			var earthLeft8= 500+360*Math.cos(earthMove+0.8);
+			var earthTop8 = 400+340*Math.sin(earthMove);
+			var earthLeft9= 500+375*Math.cos(earthMove+0.9);
+			var earthTop9 = 400+400*Math.sin(earthMove);
+			var earthLeft10= 500+400*Math.cos(earthMove+0.95);
+			var earthTop10 = 400+380*Math.sin(earthMove);
+			var moonLeft= earthLeft1+50*Math.cos(moonMove);
+			var moonTop = earthTop1+50*Math.sin(moonMove);
+		
+			earth1.style.left= earthLeft1+"px";
+			earth1.style.top = earthTop1+"px";
+			earth2.style.left= earthLeft2+"px";
+			earth2.style.top = earthTop2+"px";
+			earth3.style.left= earthLeft3+"px";
+			earth3.style.top = earthTop3+"px";
+			earth4.style.left= earthLeft4+"px";
+			earth4.style.top = earthTop4+"px";
+			earth5.style.left= earthLeft5+"px";
+			earth5.style.top = earthTop5+"px";
+			earth6.style.left= earthLeft6+"px";
+			earth6.style.top = earthTop6+"px";
+			earth7.style.left= earthLeft7+"px";
+			earth7.style.top = earthTop7+"px";
+			earth8.style.left= earthLeft8+"px";
+			earth8.style.top = earthTop8+"px";
+			earth9.style.left= earthLeft9+"px";
+			earth9.style.top = earthTop9+"px";
+			earth10.style.left= earthLeft10+"px";
+			earth10.style.top = earthTop10+"px";
+			earthMove += 0.02;
+			
+			moon.style.left= moonLeft+"px";
+			moon.style.top = moonTop+"px";
+			moonMove += 0.05;
+			
+		}, 10);
+	};
+
+</script>
+
+</head>
+<body>
+	<!-- 내용은 html
+		속성,모양 위치 등등 css
+		조작하는건 javascript
+	 -->
+
+	<h1 id = "sun">@</h1>
+	<h1 id = "earth1" style="color:blue">O</h1>
+	<h1 id = "earth2" style="color:green">O</h1>
+	<h1 id = "earth3" style="color:purple;">O</h1>
+	<h1 id = "earth4" style="color:aqua">O</h1>
+	<h1 id = "earth5" style="color:black">O</h1>
+	<h1 id = "earth6" style="color:red">O</h1>
+	<h1 id = "earth7" style="color:yellow">O</h1>
+	<h1 id = "earth8" style="color:gray">O</h1>
+	<h1 id = "earth9" style="color:orange">O</h1>
+	<h1 id = "earth10" style="color:lime">O</h1>
+	<h1 id = "moon">*</h1>
+</body>
+</html>

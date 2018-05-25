@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연산자2</title>
+<script type="text/javascript">
+	//비교연산, 논리연산
+	
+	// 비교연산 >, <, >=, <=, ==, !=, ===
+	
+	var num1 =5;
+	var num2 =7;
+	var strNum = "5";
+	var result;
+	
+	result = num1>num2;
+	document.write("num1>num2 : "+result+"<br>");
+	result = num1<num2;
+	document.write("num1 < num2 : "+result+"<br>");
+	result = num1>=num2;
+	document.write("num1>=num2 : "+result+"<br>");
+	result = num1<=num2;
+	document.write("num1<=num2 : "+result+"<br>");
+	result = num1==num2;
+	document.write("num1==num2 : "+result+"<br>");
+	result = num1!=num2;
+	document.write("num1==num2 : "+result+"<br>");
+	result = num1===num2;
+	document.write("num1===num2 : "+result+"<br>");
+	result = num1==strNum; //html상에서는 같은 값이라 같다고 나와버림.
+	document.write("num1==strNum : "+result+"<br>");
+	result = num1===num2; //값 자체를 비교하고 싶다면 === : 값 비교 + 데이터 타입 비교
+	document.write("num1===strNum : "+result+"<br>");
+	result = num1!==strNum; //!== : 값이나 데이터 중 하나라도 다르면 true
+	document.write("num1!==strNum : "+result+"<br>");
+	
+	/*논리연산자 */
+	// && || !      얘도 자바랑 같음..
+	
+	var a = 10;
+	var b = 20;
+	
+	(a>b) && b<c
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

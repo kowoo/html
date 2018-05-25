@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>박스사이징</title>
+	<style type="text/css">
+		.wrap{
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.box1{
+			border: 3px solid lime;
+			width: 250px;
+			height: 250px;
+			padding: 20px;
+			margin: 20px;
+		}
+		
+		.box2{
+			box-sizing: border-box;
+			border: 3px solid lime;
+			width: 250px;
+			height: 250px;
+			padding: 20px;
+			margin: 20px;
+		}
+
+	
+	</style>
+</head>
+<body>
+	<div class="wrap" id="wrap">
+		<div class="box1">박스1</div>	
+		<div class="box2">박스2</div>
+	</div>
+</body>
+</html>

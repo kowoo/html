@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선택자</title>
+	<script type="text/javascript">
+		//선택자 여러개 사용해보기
+		
+		/*
+			getElementByID: 요소 id로 요소 하나 선택
+			getElementsByTagName: 요소 태그이름으로 요소 여러개 선택
+			getElementsByClassName: 클래스이름으로 요소 여러개 선택
+			
+			document의 구성요소: node
+			요소노드: <tag> - nodeType: 1번
+			속성노드: 태그의 속성 - nodeType: 2번
+			텍스트노드: 태그의 내용 - nodeType: 3번
+		*/
+		window.onload = function() {
+			document.getElementsByTagName("h1")[0].style.color="red";
+			var food = document.getElementById("food_2");
+			var myList = document.getElementsByTagName("li");
+			myList[myList.length-1].style.backgroundColor = "aqua";
+			//food.children[0].style.color = "green";
+			//alert(food.firstChild.nodeType);
+			
+			//nextSibling, firstChile나 요소노트 (태그)가 선택이 안될 수 있다.
+			var nextObject = food.firstElementChild;
+			nextObject.style.color = "red";
+		}
+		
+	</script>
+
+</head>
+<body>
+	<h1>인기음식</h1>
+	<div id="food_1">
+		<h2 class="title">한식</h2>
+		<ol>
+			<li id="galbi">닭갈비</li>
+			<li>불고기</li>
+			<li>비빔밥</li>
+		</ol>
+	</div>
+	<div id="food_2">
+		<h2 class="title">양식</h2>
+		<ol>
+			<li id="pizza">피자</li>
+			<li>햄버거</li>
+			<li>파스타</li>
+		</ol>
+	</div>
+</body>
+</html>

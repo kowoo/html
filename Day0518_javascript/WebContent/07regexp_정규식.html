@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+	/* 정규 표현식을 저장할 수 있는 객체
+		이메일, 전화번호, 아이디, 비밀번호 등이 제대로 입력되었는지 확인할 때 사용
+		RegExp
+			1)참조변수 = new RegExp(패턴, 옵션);
+			2)참조변수 = /패턴/옵션;
+			test(): 지청한 규칙에 맞는 단어가 있으면 true
+			exec(): 지정한 규칙에 맞는 단어가 있으면 해당 단어 반환
+			
+			--검색옵션(표현식)--
+			* : 0회 이상 일치
+			+ : 1회 이상 일치
+			? : 0회 또는 1회 일치
+			i : 영문자의 경우 대소문자 무시
+			m : 행이 바뀌어도 규칙에 맞는 문자로 판단
+			
+			^ : 문자열의 앞부분이 규칙에 맞는지 확인
+			$ : 문자열의 끝부분이 규칙에 맞는지 확인
+			\d: 숫자 하나
+			\s: 공백 하나
+			\w: 알파벳, 숫자, 언더바
+			a|b: a 또는 b
+			[0-9]: 숫자
+			[A-Z]: 영대문자
+			[a-z]: 영소문자
+			[가-힣]: 한글
+	*/
+	
+	/* 
+	var str = "Hello! css! html! javascript!!";
+	var reg = new RegExp("java");
+	
+	var result = reg.test(str);
+	alert(result);
+	alert(reg.exec(str));
+	*/
+				//[가-힣]을 통해 한글인지 확인한다. 이후 {시작, 종료}를 통해 조건에 맞는 글자수가 되게 설정.
+				//하지만 그냥 설정만 해서는 2글자 이상이 무조건 트루로 나와버림. 왜냐하면 2~5글자가 포함되어 있는지만 확인하기 때문에
+				//그러므로 ^를 넣어서 시작 시점을 정해주고 $를 통해 종료 지점을 정해주면 2~5글자 사이일 경우에만 true가 된다.
+				//
+	/* 
+	var nameReg = /^[가-힣]{2,5}$/;
+	var userName = prompt("이름을 입력하세요.");
+	 
+	var result = nameReg.test(userName);
+	alert(result);
+	 */ 
+	var phoneReg = /^010\d{3,4}\d{4}$/;
+	var userPhone = prompt("전화번호를 입력하세요. 숫자만!");
+	var result = phoneReg.test(userPhone);
+	if(result) {
+		alert("정상적인 전화번호 입니다!!!!");
+	} else {
+		alert("전화번호가 뭔지도 모름? ㅋㅋㅋ");
+	}
+	 
+	
+	</script>
+	<meta charset="UTF-8">
+	<title>이거 어떻게 외워...</title>
+</head>
+<body>
+	
+</body>
+</html>

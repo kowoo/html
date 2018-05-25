@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>함수2</title>
+	<script type="text/javascript">
+		/* 함수 파라미터 및 반환값 작성
+			
+		*/
+		//파라미터로 받은 값을 제곱해서 출력하는 함수
+		var f = function(d) {
+			return d*d;
+		}
+		
+		//argument: 함수 호출시 넘겨주는 값(인자값)
+		/* var value = f(3);
+		
+		alert(value); */
+		
+		//선언하지 않은 인자값도 받아서 사용가능
+		//arguments: 호출되는 함수가 받은 인자값에 대한 정보를 가지고 있음
+		
+		var sum = function() {
+			var sumArg = 0;
+			alert('인자길이 : ' + arguments.length);
+			
+			for(var i=0; i<arguments.length; i++) {
+				sumArg = sumArg+arguments[i];
+			}
+			return sumArg;
+		}
+		
+		alert(sum(1,2,3,4,5));
+		//인자값으로 들어오는 모든 값을 곱해서 결과를 반환하는 함수 만들기
+		var p = function() {
+			var result = 1;
+			
+			for(var i=0; i<arguments.length; i++) {
+				result = result*arguments[i];
+			}
+			return result;
+		}
+		
+		alert(p(2,2,2,2,2,2,2,2,2,2));
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

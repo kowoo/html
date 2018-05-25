@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- table: 데이터를 표 형식으로 표현하고 싶을 때 사용하는 요소
+텍스트 데이터를 화면에 표시할 때도 사용한다.
+전체적인 레이아웃을 잡을 때 사용함. (많이 쓰이진 않는다)
+-->
+<!--
+style 속성은 따로 지정해놓고 사용할 수 있다
+css를 이용함
+-->
+
+<!-- th와 td가 공통 style속성을 가지기 때문에 따로 모아놓고 설정 -->
+
+
+<!--
+<table border = "n"> border는 테이블을 그리기 위해서 필요함. 
+	<tr>: 가로행
+	<th>: 테이블 칼럼 제목
+	<td>: 테이블 셀(요소)
+	<colspan>: 셀 병합(가로)
+--> 
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+	th, td {
+	/* 문서내 모든 th, td에 스타일 속성 지정*/
+		width: 80px;
+		padding: 10px;
+	}
+	</style>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>제목1</th>
+			<th>제목2</th>
+			<th>제목3</th>
+		</tr>
+		<tr>
+			<td colspan="2">내용</td>
+			<td rowspan="2">내용</td>
+		</tr>
+		<tr>
+			<td rowspan="2">내용</td>
+			<td>내용</td>
+		</tr>
+		<tr>
+			<td colspan="2">내용</td>
+		</tr>
+	</table>
+	
+	<p></p>
+	<hr>
+	<hr>
+		<h3>내 소개</h3>
+	<table border="1">
+		<tr>
+			<!-- padding? -->
+			<th>이름</th>
+			<td>홍길동</td>
+			<th>연락처</th>
+			<td>1337</td>
+		</tr>
+
+		<tr style = "background-color: blue">
+			<th>주소</th>
+			<td colspan="3"></td>
+		</tr>
+
+		<tr>
+			<th>자기소개</th>
+			<td colspan="3"></td>
+		</tr>
+	</table>
+</body>
+</html>

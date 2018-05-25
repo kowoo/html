@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		/*내부 스타일 시트*/
+		
+		/* Css의 기본 형태
+			선택자{
+				스타일 속성: 속성값;
+				스타일 속성: 속성값;
+				스타일 속성: 속성값;
+			}
+		*/
+		
+		/* 태그선택자 */
+		*{
+			/*전체 선택자: 문서 전체의 여백이나 글꼴등을 초기화 할 때 사용*/
+			color: orange;
+		}
+		h1{
+			color: red;
+			font-size: 30px;		
+			font-family: 돋움;
+		}
+		ul li{
+			color: blue;
+			list-style: square;
+			
+		
+		}
+		
+	</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<img alt="사막" src="img/Desert.jpg" width="500" height="400">
+	<h1>세계의 사막</h1>
+	<h1>세계의 아름다운 사막</h1>
+	<ul style="list-style: none"> <!-- 인라인스타일, 얘가 우선순위가 높잖아 이런것처럼 우선순위에 의해 적용되는 것들을 Cascading라고 부른다고 해야하나? -->
+		<li>모하비 사막</li>
+		<li>사하라 사막</li>
+		<li>고비 사막</li>
+	</ul>
+
+	<p style="color:green">비상계엄이 선포된 때에는 법률이 정하는 바에 의하여 영장제도, 언론·출판·집회·결사의 자유, 정부나 법원의 권한에 관하여 특별한 조치를 할 수 있다.</p>	
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		table{
+			border: 2px solid black;
+		}
+		th, td{
+			border: 1px solid gray;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>달력만들기</title>
+	<script type="text/javascript">
+		/*입력받은 연도의 전체 달력 만들어보자
+			1. Date객체 만들기
+			2. 연, 월, 일 구하기
+			3. 표시할 달력의 줄 수 계산, 해당 월의 시작 요일 구하기
+			4. 달력그리기
+		*/
+		
+		//현재일 객체 생성
+		var day = new Date();
+		var year = day.getFullYear(); // getYear는 1900년을 기준으로 현재 연도 반환 (2100년은 200이 되는 셈)
+		var month = day.getMonth();
+		var date = day.getDate();
+		
+		var firstDay = new Date(year,month,1);
+		//getDay(): 요일 반환, 0:일 ~ 6:토
+		var firstDayofMonth = firstDay.getDay();
+		//마지막 날
+		var lastDays= [31,28,31,30,31,30,31,31,30,31,30,31];
+		//윤년 구하기
+		//4로 나누어 떨어지면서 100으로 나누어 떨어지지않거나 400으로 나누어 떨어지면 됨
+		
+		if((year%4==0 && year%100!=0) || (year%400==0)) {
+			lastDays[1] = 29;
+		}
+		
+		//달력의 줄 수  Math.ceil(총 일수+시작 요일 값)/7
+		var row = Math.ceil(firstDayofMonth+lastDays[month]/7);
+		
+		document.write("<h1>"+year+"년"+(month+1)+"월"+"</h1>");
+
+		document.write("<table boreder= '1'>");
+		document.write("<tr>");
+		document.write("<th>일</th>");
+		document.write("<th>월</th>");
+		document.write("<th>화</th>");
+		document.write("<th>수</th>");
+		document.write("<th>목</th>");
+		document.write("<th>금</th>");
+		document.write("<th>토</th>");
+		document.write("</tr>");
+		
+		//나머지 달력 그리기
+		var num = 1;
+		for(var i=0; i<row ;i++) {
+			document.write("<tr>");
+			for(var j=0; j<7;j++) {
+				//내용출력
+				//첫째 줄일 경우 시작요일 보다 작은건 출력x
+				//지금 출력하는 숫자가 마지막 일수보다 작거나 같을 때만 출력
+				if(i==0) {
+					if(j<firstDay.getDay()) {
+						document.write("<td>&nbsp;</td>");
+						continue;
+					}
+				}
+				if(num>lastDays[month]) {
+					document.write("<td>&nbsp;</td>");
+				} else {
+				document.write("<td>"+num+"</td>");
+				num++;
+				}
+			}
+			if(num>lastDays[month]) {
+				document.write("</tr>");
+				document.write("</table>");
+				break;
+			}
+		}
+	</script>
+</head>
+<body>
+	<!--  -->
+
+</body>
+</html>

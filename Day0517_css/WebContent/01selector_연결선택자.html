@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>연결 선택자</title>
+	<style type="text/css">
+		/*	
+		연결 선택자:
+			특정한 요소를 하나 선택하고 그 요소를 기준으로 부모, 형제, 자식 요소를 선택
+		하위 선택자
+			요소1 요소2 : 요소1의 하위 요소 중 요소2인 요소를 모두 선택
+		자식 선택자
+			요소1 > 요소2 : 요소 1의 자식 요소 중 요소2를 선택
+		인접형제 선택자
+			요소1+요소2 : 요소1 다음에 나오는 형제요소 중, 요소2인 요소를 선택
+		형제 선택자
+			요소1~요소2 : 요소1보다 나중에 나오는 형제 요소 중 요소 2인 모든 요소 선택
+		*/
+		/*하위 선택자*/
+/*  		ul li{
+			border: 1px dotted blue;		
+		} */
+		/*자식 선택자*/
+/*    		section > ul{
+			border: 1px dotted blue;
+		} */
+		/*인접형제 선택자*/
+/* 		#ul1+ol {
+			border: 2px dotted red;
+		} */
+		
+		/*형제 선택자*/
+/* 		#ul1 ~ ol{
+			border: 1px dotted gray;		
+		} */
+		/*섹션에 속한 첫번째 ul을 선택*/
+/*    		section > ul:first-child{
+			border: 1px dotted blue;
+		} */
+		/*섹션에 속한 마지막 ul을 선택*/
+/* 		section > ul:last-child{
+			border: 1px dotted blue;
+		} */
+		
+/* 		#ol1 ~ ol{
+			border: 2px dotted blue;
+		} */
+		/*ul의 자식요소 중 첫번째 li만 선택*/
+/* 		ul > li:nth-child(1){
+			border: 1px dotted blue;
+		} */
+		/*ul의 자식요소 중 홀수만 선택 even은 짝수*/
+		ul > li:nth-child(odd){
+			border: 1px dotted blue;
+		}
+		
+		:root{
+			border: 3px dotted black;
+		}
+		
+	</style>
+</head>
+<body>
+	<section>
+		<ul id="ul1">
+			<li>아이언맨
+				<ul>
+					<li>1편</li>
+					<li>2편</li>
+				</ul>
+			</li>
+			<li>캡틴아메리카
+				<ul>
+					<li>1편</li>
+					<li>2편</li>
+					<li>3편</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<ol id="ol1">
+			<li id="fee1">요금1
+				<ul>
+					<li>500원</li>
+					<li>600원</li>
+				</ul>
+			</li>
+			<li>요금2
+				<ul>
+					<li>5만원</li>
+					<li>8만원</li>
+					<li>9만원</li>
+				</ul>
+			</li>
+		</ol>
+		<ol>
+			<li>요금3
+				<ul>
+					<li>0원</li>
+					<li>5원</li>
+				</ul>
+			</li>
+			<li>요금4
+				<ul>
+					<li>5000원</li>
+					<li>9800원</li>
+					<li>5550원</li>
+				</ul>
+			</li>
+		</ol>
+		
+		<ul>
+			<li>아이언맨
+				<ul>
+					<li>1편</li>
+					<li>2편</li>
+				</ul>
+			</li>
+			<li>캡틴아메리카
+				<ul>
+					<li>1편</li>
+					<li>2편</li>
+					<li>3편</li>
+				</ul>
+			</li>
+			<li>또르
+				<ul>
+					<li>1편</li>
+					<li>2편</li>
+					<li>3편</li>
+				</ul>
+			</li>
+		</ul>		
+		
+		
+	</section>
+</body>
+</html>

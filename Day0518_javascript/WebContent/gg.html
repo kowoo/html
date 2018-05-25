@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>네이버</title>
+	<script type="text/javascript">
+	window.onload = function() {
+
+		var btnCheck = document.getElementById("btnCheck");
+		var id = document.getElementById("id");
+		var pw1 = document.getElementById("pw1");
+		var pw2 = document.getElementById("pw2");
+		var ckResult = document.getElementById("checkResult");
+		var pwer = document.getElementById("pwer");
+		var ider = document.getElementById("ider");
+		var iderror = document.getElementById("iderror");
+ 		var pwerror = document.getElementById("pwerror");
+ 		var idForm = document.getElementById("idForm");
+ 		var pwForm = document.getElementById("pwForm");
+		btnCheck.onclick = function() {
+			if(pw1.value == pw2.value) {
+				
+			} else {
+				pwer.style.color="red";
+				pwer.innerHTML="비밀번호가 다릅니다!";
+				pwerror.style.display="block";
+				
+			}
+			
+		}
+/* 		
+		pw2.onblur == function() {
+			if(pw1.value != pw2.value) {
+				pwer.style.color="red";
+				pwer.innerHTML="비밀번호가 다릅니다!";
+				pwerror.style.display="block";
+			}
+		}
+		 */
+		
+		idCheck = function() {
+			var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+			if(id.value=="") {
+				idForm.style.height="50px";
+				ider.style.color="red";
+				ider.innerHTML="아이디는 필수입력 항목입니다.";
+				iderror.style.display="block";
+			}
+			else if(!idReg.test(id.value)) {
+				idForm.style.height="50px";
+				ider.style.color="red";
+				ider.innerHTML="아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.";
+				iderror.style.display="block";
+			} else {
+				idForm.style.height="25px";
+				iderror.style.display="none";
+			}
+		}
+		 
+		blurblur = function() {
+			if(pw1.value != pw2.value) {
+				pwForm.style.height="50px";
+				pwer.style.color="red";
+				pwer.innerHTML="비밀번호가 다릅니다!";
+				pwerror.style.display="block";
+			} else {
+				pwForm.style.height="25px";
+				pwerror.style.display="none";
+			}
+		}
+
+		
+	};
+	</script>
+	<style type="text/css">
+	div{
+		margin: 0 auto;
+	}
+	#wrapper{
+		width: 100%;
+		text-align: center;
+	}
+	#title{
+		color: green;
+		font-size: 5em;
+	}
+	.form{
+		border: 1px solid gray;
+		box-sizing: border box;
+		width: 400px;
+		height: 25px; /*오류발생시 50px*/
+		padding: 11px;
+	}
+	input{
+		border: none;
+		width: 339px;
+		heigth: 28px;
+		padding: 6px;
+		font-size:14px;
+		margin-left: px;
+	}
+	.error{
+		font-size: 12px;
+		text-align: left;
+		margin-left: 20px;
+		
+	}
+	p{
+		display:inline;
+	}
+	.join{
+		margin:20px;
+		width:430px;
+		height:60px;
+		background-color: green;
+		color: white;
+		text-align: center;
+		font-size: 20px;
+	}
+	
+	
+	</style>
+	
+</head>
+<body>
+	<div id="wrapper">
+		<h1 id="title">NAVER</h1>
+		
+		<div class="form" id= "idForm">
+			<input type="text" id="id" placeholder="아이디" maxlength="16" onblur="idCheck();">
+			<div class="error" id="iderror" style="display:none;">
+			<p id="ider">오류확인</p>
+			</div>
+		</div>
+		<div class="form">
+			<input type="text" id="pw1" placeholder="비밀번호" maxlength="20">
+		</div>
+		<div class="form" id= "pwForm">
+			<input type="text" id="pw2" placeholder="비밀번호 확인" maxlength="20" onblur="blurblur();">
+			<div class="error" id="pwerror" style="display:none;">
+			<p id="pwer">오류확인</p>
+			</div>
+		</div>
+		<input type="submit" id="btnCheck" value="가입하기" class="join">
+		
+	</div>
+</body>
+</html>

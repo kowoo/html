@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- prefix를 알아서 붙여주는 라이브러리 -->
+<script type="text/javascript" src="prefixfree.min.js"></script>
+	<style type="text/css">
+	/* prefix
+		css3 이전에 작성된 브라우저의 경우에는 새로운 웹표준의 문법을 지원하지 않는 경우가 있다.
+		그리고 브라우저마다 문법을 다르게 해석하는 경우도 있다.
+		
+		그러므로 특정 문법을 사용할 때, 브라우저별 설정을 다르게 해주어야 함.
+		 
+	*/
+	.box{
+		border: 2px solid green;
+		text-align: center;
+		width: 100px;
+		height: 60px;
+		padding-top: 30px;
+		position: absolute;
+		top: 350px;
+		left: 890px;
+	}
+	/*속성선택자, box클래스에 마우스가 올라가는 경우의 스타일을 지정*/
+	.box:HOVER{
+		/*45도 기울이겠다*/
+		/*특정한 웹브라우저에서 동작하지않는다면 prefix를 설정해야한다.
+		특정 브라우저에서 아직 표준화 되지 않은 스타일을 적용시키기 위함
+			-webkit-: 사파리, 크롬
+			-moz-	: 모질라, 파이어폭스
+			-o-		: 오페라
+			-ms-	: 익플
+		*/
+		transform: rotate(45deg);
+/* 		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		-ms-transform: rotate(45deg); */
+	}
+	</style>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="box">
+		Mouse Over
+	</div>
+
+</body>
+</html>

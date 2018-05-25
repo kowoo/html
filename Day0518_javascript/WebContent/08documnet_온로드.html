@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>문서객체</title>
+<!-- 
+	<script type="text/javascript">
+		//h1 선택해서 속성 변경을 하려 해도 아직 body가 실행이 안된 상태라 변경이 불가능함.
+		//왜? 자바스크립트도 위부터 아래로 실행되기 때문에...
+ -->
+ 	<script type="text/javascript">
+		//그래서 위로 올라왔음!
+		//이 상태로 쓰려면 온로드가 필요하다
+		
+		//문서가 로딩되고 나서 function을 실행하게 됨.
+		window.onload = function() {
+			var title = document.getElementById("title");
+			title.style.color = "green";
+			
+			var contents = document.getElementsByTagName("p");
+			contents[0].style.color = "red";
+			contents[1].style.color = "orange";
+			contents[2].style.color = "yellow";
+			contents[3].style.color = "green";
+		};
+		
+	</script>
+</head>
+<body>
+	<!--
+		문서객체모델(DOM: Document Obejct Model) 
+		:HTML 문서 그 자체의 정보를 가지고 있음
+		document
+		html, head, body 등 구성요소를 가짐
+		html문서를 구성하고 있는 요소들을 node라 부른다.
+		
+		자바스크립트의 역할은 html 요소들에 프로그래밍적인 요소를 더하는 것이다.
+		: 자바스크립트에서 각각의 요소를 직접적으로 조작할 수 있어야 한다.
+		
+		1. 선택자를 이용해서 html요소 선택
+		2. 선택된 요소의 속성 변경
+	-->
+	<h1 id="title">선택자</h1>
+	<div id="box">
+		<p>내용1</p>
+		<p>내용2</p>
+	</div>
+	<p>내용3</p>
+	<p>내용4</p>	
+	
+<!-- 	
+	<script type="text/javascript">
+		//그래서 여기다 넣어주면 됨 ㅋ
+		//문서객체 이용해서 html 요소 선택해서 속성 변경
+		var title = document.getElementById("title");
+		title.style.color = "green";
+		
+		var contents = document.getElementsByTagName("p");
+		contents[0].style.color = "red";
+		contents[1].style.color = "orange";
+		contents[2].style.color = "yellow";
+		contents[3].style.color = "green";
+		
+		//근데 이러면 지저분하잖아? 그래서 head에다가 쓰고 싶다면??
+	</script>
+	 -->
+</body>
+</html>

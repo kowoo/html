@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>선택자</title>
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		/* 인접 관계 선택자
+			부모요소 선택자 
+				$("요소").parent()	: 요소의 부모요소 선택
+			상위요소 선택자
+				$("요소").parents()	: 요소의 상위요소 모두 선택
+			하위요소 선택자
+				$("요소1 요소2")		: 요소1의 하위요소 중 요소 2인 모든 요소 선택
+			자식요소 선택자
+				$("요소1 > 요소2")	: 요소1의 자식 중 요소2인 요소 선택
+			자식들요소 선택자
+				$("요소1").children(): 요소의 자식요소 모두 선택
+			형요소 선택자 
+				$("요소").prev()		: 요소의 형요소 선택 (형제 중 직전에 선언된 요소)
+			형요소들 선택자
+				$("요소").prevAll()	: 요소보다 먼저 선언된 모든 형제요소
+			동생요소 선택자
+				$("요소").next()		: 요소의 동생요소 선택 (형제 중 직후에 선언된 요소)
+			동생요소들 선택자
+				$("요소").nextAll()	: 요소보다 나중에 선언된 모든 형제요소
+			첫번째요소 선택자
+				$("요소").first()	: 요소 중 첫번째로 선언된 요소
+				 ex)$("li").first()	: <li>요소 중 첫번째 요소 선택
+					$("요소:first")도 같은 효과
+			마지막요소 선택자
+				$("요소").last()		: 요소 중 마지막으로 선언된 요소
+				 ex)$("li").last()	: <li>요소 중 마지막 요소 선택
+					$("요소:last")도 같은 효과
+		*/
+		
+		$(function() {
+			//요소 선택하고 css함수 이용해서 border 적용하기
+			//$(".first").parent().css("border","1px solid blue");
+			//$(".first").parents().css("border","1px solid blue");
+			//$("#myList li").css("border","1px solid blue");
+			//$("#myList > li").css("border","1px solid blue");
+			//$("#myList").children().css("border","1px solid red");
+			//$(".second").prev().css("border","1px solid red");
+			//$(".second").prevAll().css("border","1px solid red");
+			//$(".second").next().css("border","1px solid red");
+			//$(".second").nextAll().css("border","1px solid red");
+			//$("li").first().css("border","1px solid red");
+			//$("li:first").css("border","1px solid red");
+			//$("li").last().css("border","1px solid red");
+			//$("li:last").css("border","1px solid red");
+			
+			
+		});
+		
+		
+	</script>
+</head>
+<body>
+	<div>
+		<h1>인접 관계 선택자</h1>
+		<ul id="myList">
+			<li id = "content1">내용 1 
+				<ul>
+					<li>내용1-1</li>
+					<li>내용1-2</li>
+					<li>내용1-3</li>
+					<li>내용1-4</li>
+				</ul>
+			</li>
+			<li id = "content2">내용 2 
+				<ol>
+					<li>내용2-1</li>
+					<li>내용2-2</li>
+					<li class="first">First</li>
+					<li>내용2-4</li>
+					<li>내용2-5</li>
+					<li>내용2-6</li>
+				</ol>
+			</li>
+			<li id = "content3">내용 3 
+				<ul>
+					<li>내용3-1</li>
+					<li>내용3-2</li>
+					<li class="second">First</li>
+					<li>내용3-4</li>
+					<li>내용3-5</li>
+					<li>내용3-6</li>
+				</ul>
+			</li>
+		
+		</ul>
+	</div>
+
+</body>
+</html>

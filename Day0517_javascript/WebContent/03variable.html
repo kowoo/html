@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 변수</title>
+<script type="text/javascript">
+	var str;
+	str = "Hello!!";
+	document.write(str);
+	
+	/*
+		자바스크립트에서의 변수
+			변수 선언 후, 데이터 타입과는 상관없이 대입연산자를 이용해서 대입하면 된다.
+			자료형: 숫자, 문자열, 논리형, Null, Undefined, 배열, 함수, 객체 등
+				기초자료형
+					숫자 Number
+					문자열 String
+					논리형 Boolean
+					널 Null
+					정의안됨 Undefined
+				참조자료형
+					배열 Array
+					함수 Function
+					객체 Object
+					등...
+	*/
+	var str = "<h1>문자열</h1>";
+	var str1 = '문자열'; /*쌍, 외 둘다 됨. 근본없음...*/
+	var str2 = "'문자열 안에 외따옴표 쓰기'";
+	var str3 = '"문자열 안에 쌍따옴표 쓰기"';
+	var str4 = "쌍따옴표 안에서 쌍따옴표 쓰기 \" ㅋ ";
+	document.write(str,"<br>");
+	document.write(str1,"<br>");
+	document.write(str2,"<br>");
+	document.write(str3,"<br>");
+	document.write(str4,"<br>");
+	document.write("<hr>");
+	
+	var a; // undefined
+	var b = null; //null
+	var c = true; //boolean
+	var d = 10<5; //boolean
+	var e = 100; //number
+	var f = "100"; //String
+	document.write(a,"<br>");
+	document.write(b,"<br>");
+	document.write(c,"<br>");
+	document.write(d,"<br>");
+	document.write(e,"<br>");
+	document.write(f,"<br>");
+	document.write("<hr>");
+	
+	//typeof: 지정한 데이터나 변수의 데이터형을 알고 싶을 때 사용
+	document.write("e type : "+typeof e,"<br>");
+	document.write("f type : "+typeof f,"<br>");
+	document.write("<hr>");
+	
+	var num1 = 10;
+	var num2 = Number("10"); //문자열 10을 숫자로 변환해서 저장
+	var num3 = Number(10);
+	document.write(num1,"<br>");
+	document.write(num2,"<br>");
+	document.write(num3,"<br>");
+	document.write("<hr>");
+	
+	/* 
+	논리형 데이터 Boolean(데이터)
+		false == 0,null,undefined
+		나머지   == true
+	*/
+	
+	var bool1 = Boolean(a); //a 언디파인드
+	var bool2 = Boolean(b); //b 널
+	var bool3 = Boolean(c); //c 트루
+	var bool4 = Boolean(0); //숫자0
+	var bool5 = Boolean(1); //숫자1
+	var bool6 = Boolean("아이언맨"); //나머지 데이터
+	document.write("undefined : "+bool1,"<br>");
+	document.write("null : "+bool2,"<br>");
+	document.write("true : "+bool3,"<br>");
+	document.write("숫자 0 : "+bool4,"<br>");
+	document.write("숫자 1 : "+bool5,"<br>");
+	document.write("나머지 데이터 : "+bool6,"<br>");
+	document.write("<hr>");
+	
+	//숫자 데이터 소수점 자리지정: toFixed(n번째);
+	
+	var x = 3.145427;
+	document.write("x : "+x,"<br>");
+	document.write("x type : "+typeof x,"<br>");
+	document.write("toFixed(0) : "+x.toFixed(0),"<br>");
+	document.write("toFixed(2) : "+x.toFixed(2),"<br>");
+	document.write("toFixed(4) : "+x.toFixed(4),"<br>");
+	document.write("<hr>");
+	
+	var txt = "ABCDEFGHIJKLMNMNCDOP";
+	document.write("txt: "+txt,"<br>");
+	document.write("txt.length : "+txt.length,"<br>");
+	//지정한 문자열의 위치(시작점, 0부터 시작하는듯? CD넣으니 2로 나오고 DE는 3)
+	document.write("txt.indexOf(CD) : "+txt.indexOf("CD"),"<br>");
+	//지정한 문자열의 뒤에서 부터  검색 후 나오는 최초 위치
+	document.write("txt.lastIndexOf(CD) : "+txt.lastIndexOf("CD"),"<br>");
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

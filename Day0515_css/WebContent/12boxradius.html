@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		div{
+			width: 300px;		
+			height: 300px;
+			margin: 20px;
+			display: inline-block;
+		}
+		.round{
+			border: 2px solid red;
+			/*테두리를 둥글게 만들기 위한 속성*/
+						/* 좌상  우상  우하  좌하*/
+			/*border-radius: 20% 40% 20% 40%;*/
+						/* 좌상,우하 우상,좌하*/
+			/*border-radius: 10% 50%;*/
+						/* 위아래/양옆 */
+			/*border-radius: 10%/50%;*/
+			border-radius: 50%;
+		}
+		.bg{
+			background-image: url(img/mon.png);
+			background-size: cover;
+		}
+		.bb{
+			background-image: url(img/mon2.png);
+			background-size: cover;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="round bb"></div>
+	<div class="round bg"></div>
+</body>
+</html>
