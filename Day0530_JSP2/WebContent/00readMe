@@ -1,0 +1,98 @@
+-----과제-----
+기능
+	로그인 / 로그아웃
+	회원가입
+	회원목록 보기
+	회원정보 수정
+----------------
+package
+	-dao
+		ConnectionProvider
+		MemberDao
+			insert
+			//update 수정은 보류이므로 얘도 보류일듯
+			//delete 얘도 지금은 필요없는 기능인듯
+			selectOne
+			selectAll
+			조건은 전부 id
+	-model
+		Member
+			id, pw, name, email : String
+			regDate : Date
+			getter+setter
+	-service
+		MemberService.java : 실제로 로직을 처리하는 코드를 포함하는 클래스
+			login(String id,String pw):boolean 
+				id와 pw를 전달받아서 동일한 id, 비밀번호가 존재하면 true 아니면 false
+			join(Member) : boolean
+				Member의 속성으로 DB에 insert, 성공하면 true, 실패하면 false	
+			modify(Member):boolean
+			    Member의 속성으로 DB에 update, 성공하면 true, 실패하면 false
+	
+	modify(Member):boolean
+	-servlet
+		MemberServlet
+			화면보여달라는 요청을 jsp로 만들지 않고 따로 요청을 받음
+			ex)loginForm을 보고 싶다면
+			요청 loginForm > loginForm.jsp으로 포워딩
+			
+			다양한 요청을 한꺼번에 처리해야함
+			web.xml: 프로젝트 전반적인 설정을 위해 xml형식으로 설정값을 저장하는 파일
+					서블릿이 처리할 요청을 정의할 수도 있다.
+					
+
+----------------		
+요청목록
+	loginForm
+		로그인 화면 요청
+			loginForm.jsp로 포워딩
+	login
+		로그인 로직 처리 요청
+			MemberService.login() 호출
+			login이 true반환하면 session에 'userid'속성 지정하고 main 요청 redirect
+				   false반환하면 loginForm 요청 redirect
+	logout
+		로그아웃 로직 처리 요청
+			session에서 'userid' 속성 삭제
+			loginForm 요청 redirect
+	main
+		메인 화면 요청
+			로그인 되어있으면 메인 화면 포워딩
+			로그인 안되어있으면 loginForm 요청 redirect
+	memberList
+		화면에 회원 목록을 보여달라는 요청
+			MemberService.학생목록 가져오기 함수(); 메서드를 이용해서
+			회원목록을 가져오고 요청에 데이터를 담아서
+			memberList.jsp로 포워딩
+	보류! modifyForm
+		수정 화면 요청
+	보류! modify
+		수정 화면을 보여줌
+	joinForm
+		회원가입 화면 요청
+			joinForm.jsp로 포워딩
+	join
+		회원가입 로직 처리 요청
+			joinForm.에서 파라미터 전달 받아서 데이터베이스에 넣기
+			실패하면, joinForm 요청 redirect
+			성공하면, loginForm 요청 redirect
+------------------------------------------------
+화면목록(jsp)
+loginForm.jsp
+	입력창: 아이디,비밀번호
+	제출(submit): 로그인(login)
+	버튼 : 회원가입버튼(joinForm)
+joinForm.jsp
+	입력창: 아이디, 이름, 비번, 이메일
+	제출(submit): 회원가입(join)
+memberList.jsp
+	모든회원 목록 출력
+	버튼: 뒤로가기
+보류 modifyForm.jsp
+main.jsp
+	아이디님 반갑습니다	
+	버튼: 회원목록보기(memberList)
+	버튼: 로그아웃(logout)
+
+*main, memberList화면은 로그인 상태일 때만 보여주기
+					

@@ -1,16 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 	<%! 
 		String id = "abc";
 		String pw = "1234";
 	%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>로그인 체크</title>
-</head>
-<body>
 	<%-- 여기서 login.jsp에서 보낸 데이터를 받아보자 --%>
 	
 	<%
@@ -35,14 +28,29 @@
 				dispatcher.forward(request, response);
 				
 			} else {
-				out.print("비밀번호 불일치"+"<br>");
+				//out.print("비밀번호 불일치"+"<br>");
+				request.setAttribute("msg", "비밀번호가 틀렸습니다.");
+				RequestDispatcher dispatcher
+				= request.getRequestDispatcher("06loginFail.jsp");
+				dispatcher.forward(request, response);
 			}
 		} else {
-			out.print("아이디 불일치"+"<br>");
+			//out.print("아이디 불일치"+"<br>");
+			request.setAttribute("msg", "아이디가 틀렸습니다.");
+			RequestDispatcher dispatcher
+			= request.getRequestDispatcher("06loginFail.jsp");
+			dispatcher.forward(request, response);
 		}
 	%>
 	
 	<%-- 입력받은 아이디 : <%= request.getParameter("userid") %><br>
 	입력받은 비밀번호 : <%= request.getParameter("userpw") %> --%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>로그인 체크</title>
+</head>
+<body>
 </body>
 </html>
