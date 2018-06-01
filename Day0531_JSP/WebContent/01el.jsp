@@ -38,7 +38,7 @@
 	<h3>산술연산</h3>
 	\${5+2} : ${5+2} <br>
 	\${5/2} : ${5/2} <br>
-	\${5 div 2} : ${5 div 2} <br>
+	<!--  \${5 div 2} : ${5 div 2} <br> --> 오류 나와서 주석처리함
 	\${5 mod 2} : ${5 mod 2} <br>
 	<h3>비교연산</h3>
 	\${5 > 2} : ${5 > 2} <br>
@@ -59,7 +59,7 @@
 	session<br>
 	application<br>
 	</p>
-	<h3>JSP에서 기본객체</h3>
+	<h3>EL에서 기본객체</h3>
 	<p>
 	pageScope == pageContext<br>
 	requestScope == request<br>

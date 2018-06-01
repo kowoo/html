@@ -13,11 +13,18 @@
 <!-- 	} 						-->
 	<%-- forEach 태그 연습
 		배열, 컬렉션, 맵 등에 있는 값들을 순차적으로 접근해서 처리한다
-		items : 순차적으로 접근하고자 하는 데이터들의 모음
-		var : 각 회차에서 요소가 저장될 변수의 이름 
-		begin : 시작인덱스 설정
-		end : 종료 인덱스 설정
-		step : 인덱스 증가분 설정
+		items 	: 순차적으로 접근하고자 하는 데이터들의 모음
+		var 	: 각 회차에서 요소가 저장될 변수의 이름 
+		begin 	: 시작인덱스 설정
+		end	 	: 종료 인덱스 설정
+		step 	: 인덱스 증가분 설정
+		
+		varStatus 속성
+			index, count에 접근 가능
+			index: 현재 index
+			count: 루프 실행 횟수
+			first: 루프실행이 첫 번째 실행이면 true 아니면 false
+			last : 루프실행이 마지막이면 true 아니면 false
 	--%>
 	
 	<%
@@ -28,6 +35,11 @@
 	<c:forEach items="${mList}" var="movie">
 		${movie} <br>
 	</c:forEach>
+	
+	<c:forEach items="${mList}" var="movie" varStatus="status">
+		${movie} : index = ${status.index}, count = ${status.count}, first = ${status.first}, last = ${status.last} <br>
+	</c:forEach>
+	
 	
 </body>
 </html>
