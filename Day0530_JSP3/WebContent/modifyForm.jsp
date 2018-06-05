@@ -1,4 +1,4 @@
-<%@page import="model.Member"%>
+<%@page import="model.Members"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,10 +9,10 @@
 </head>
 <body>
 	<%
-		Member m = (Member)session.getAttribute("user");
-		String name = m.getName();
-		String pw = m.getPw();
-		String email = m.getEmail();
+		Members m = (Members)session.getAttribute("user");
+			String name = m.getName();
+			String pw = m.getPw();
+			String email = m.getEmail();
 	%>
 	<form action="modify" method="post">
 		<table>

@@ -21,7 +21,7 @@
 	<div>
 		<%= session.getAttribute("userid") %> 님 반갑습니다.<br>
 		<button onclick = "location.href = 'memberList'">회원목록 보기</button>
-		<button onclick = "location.href = 'gogo'">게시판 이동</button>
+		<button onclick = "location.href = 'messageList'">게시판 이동</button>
 		<button onclick = "location.href = 'modifyForm'">회원정보 수정</button>
 		<button onclick = "location.href = 'dropForm'">회원탈퇴</button>
 		<button onclick = "location.href = 'logout'">로그아웃</button>

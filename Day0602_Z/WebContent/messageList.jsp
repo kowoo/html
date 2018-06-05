@@ -6,6 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>메시지 목록</title>
+	
 	<style type="text/css">
 		div{
 			margin: 0 auto;
@@ -36,7 +37,7 @@
 		form {
 			margin-left: 165px;
 		}
-		input {
+		input.text {
 			width: 200px;
 			height: 30px;
 		}
@@ -44,10 +45,11 @@
 			width: 200px;
 			height: 200px;
 		}
-		button {
+		.maingo {
 			margin-top: 10px;
 			margin-left: 850px;
 		}
+		
 	</style>
 </head>
 <body>
@@ -55,15 +57,16 @@
 		<table>
 			<tr>
 				<th>번호</th>
-				<th class="abc" colspan="5">내용</th>
+				<th>내용</th>
 				<th>글쓴이</th>
 			</tr>
 		
-			<c:forEach items="${mList}" var="msg" varStatus="status">
-				<tr>
-					<td>${status.count}</td>
-					<td class="abc" colspan="5">${msg.message}</td>
+			<c:forEach items="${messageList}" var="msg">
+				<tr class="m">
+					<td>${msg.id}</td>
+					<td>${msg.message}</td>
 					<td>${msg.name}</td>
+					<td><button onclick="location.href='confirmDeletion?id=${msg.id}'">x</button></td>
 				</tr>
 				<tr>
 				</tr>
@@ -77,6 +80,6 @@
 			<input type="submit" value="작성하기">
 		</form>
 	</div>
-	<button onclick="location.href = 'main'">메인화면으로 돌아가기</button>
+	<button class="maingo" onclick="location.href = 'main'">메인화면으로 돌아가기</button>
 </body>
 </html>

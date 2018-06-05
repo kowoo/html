@@ -24,6 +24,7 @@
 		<servlet-name>MessageServlet</servlet-name>
 		<url-pattern>/messageList</url-pattern>
 		<url-pattern>/write</url-pattern>
-		<url-pattern>/gogo</url-pattern>
+		<url-pattern>/confirmDeletion</url-pattern>
+		<url-pattern>/pwCheck</url-pattern>
 	</servlet-mapping>
 </web-app>

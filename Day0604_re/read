@@ -1,0 +1,103 @@
+Model
+	1. member
+		memberNumber
+		id
+		pw
+		name
+		nick
+		
+	2. post
+		postNumber
+		title
+		content
+		nick
+		pw (비회원 전용 기능)
+		postDate (HH:MM:ss)
+	3. comment
+		commentNumber
+		nick
+		comment
+		commentDate
+		pw (비회원 전용 기능)
+추가할만한 기능
+	1. member
+		게시글, 덧글 카운트기능
+		
+DAO
+	1. memberDao
+		update
+		select
+		secectAll
+		insert
+		delete
+		
+	2. postDao
+		update
+		select
+		secectAll
+		insert
+		delete
+	
+	3. commentDao
+		update
+		select
+		secectAll
+		insert
+		delete
+		
+Servlet
+	1. memberServlet
+	2. postServlet
+	3. commentServlet
+	
+display
+	0. index
+		1)board로 이동
+	1. board
+		1)메인화면
+		2)로그인, 글쓰기, 게시글 이동
+	2. login
+		1)로그인 기능, 완료 시 board, 실패 시 실패사유 경고
+		1)sign up, board 이동
+	3. sign up
+		1)완료 시 login 이동
+		2)정규식을 통한 검사
+	4. modify
+		1)로그인 상태에서만 접근
+		2)비밀번호가 일치해야 변경 성공
+		3)비밀번호 변경을 원하면 현재 비밀번호, 바꿀 비밀번호 입력
+		4)board, 회원탈퇴 이동 기능, 탈퇴는 해당 화면에서 처리?
+	5. post
+		1)제목, 내용 작성
+		2)시간, 작성자 닉네임 표시
+		3)비회원은 비밀번호 있어야 등록가능
+		4-1)회원은 작성자 닉네임 자동완성(읽기 전용)
+		4-2)비회원은 작성자 닉네임 설정
+		5-1)본인만 삭제, 수정 가능
+		5-2)비회원은 비밀번호가 일치하면 수정 가능
+	6. comment
+		1)내용 작성
+		2)시간, 작성자 닉네임 표시
+		3)비회원은 비밀번호 있어야 등록가능
+		4-1)회원은 작성자 닉네임 자동완성(읽기 전용)
+		4-2)비회원은 작성자 닉네임 설정
+		5-1)본인만 삭제 가능
+		5-2)비회원은 비밀번호가 일치하면 삭제 가능
+	7. 기타
+		1)result
+			실패 관련 경고문 출력, 성공 시 해당 화면 이동기능
+		
+추가 할만한 기능
+	5. post 
+		6) 사진 등록
+	6. 출석화면
+		1)login, board 이동
+		2)비로그인은 경고 후 login으로 이동
+		3)1일 1회만 가능, 이미 출석을 했을 경우 했다는 경고
+부가 팁
+sql 쿼리문으로 현재시간 저장할때
+TO_DATE(SYSDATE,'YYYY-MM-DD HH24:MI:SS')
+불러오려면 
+TO_DATE(컬럼명,'YYYY-MM-DD')
+TO_CHAR(컬럼명,'YYYY-MM-DD')
+둘중 하나인듯?

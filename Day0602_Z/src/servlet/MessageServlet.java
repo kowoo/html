@@ -28,10 +28,16 @@ public class MessageServlet extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		String contextPath = req.getContextPath();
 		String uri = req.getRequestURI();
-		System.out.println("시동!");
 		
 		if(uri.equals(contextPath+"/messageList")) {
-			req.setAttribute("mList", service.list());
+//			req.setAttribute("mList", service.list());
+//			req.getRequestDispatcher("messageList.jsp").forward(req, resp);
+//위는 기존 아래는 페이징
+			int pageNumber = 1;
+			if(req.getParameter("page")!=null) {
+				pageNumber = Integer.parseInt(req.getParameter("page"));
+			}
+			req.setAttribute("messageList", service.getMessageList(pageNumber));
 			req.getRequestDispatcher("messageList.jsp").forward(req, resp);
 		}else if(uri.equals(contextPath+"/write")) {
 			String url=null;
@@ -51,9 +57,28 @@ public class MessageServlet extends HttpServlet {
 			}
 			req.setAttribute("msg", msg);
 			req.getRequestDispatcher("result.jsp").forward(req, resp);
-		}else if(uri.equals(contextPath+"/gogo")) {
-			req.setAttribute("mList", service.list());
-			req.getRequestDispatcher("messageList.jsp").forward(req, resp);
+		}
+//		else if(uri.equals(contextPath+"/messageList")) {
+//			req.setAttribute("mList", service.list());
+//			req.getRequestDispatcher("messageList.jsp").forward(req, resp);
+//		}
+		else if(uri.equals(contextPath+"/confirmDeletion")) {
+			req.getRequestDispatcher("confirmDeletion.jsp").forward(req, resp);
+		}else if(uri.equals(contextPath+"/pwCheck")) {
+			//게시글 번호를 가지고 오고, 해당 비번과 입력받은 비번이 일치하는지 확인.
+			//일치하면 삭제
+			int id = Integer.parseInt(req.getParameter("id"));
+			String password = req.getParameter("password");
+			String msg;
+			if(service.del(id, password)) {
+				msg="삭제 완료";
+			} else {
+				msg="삭제 실패";
+			}
+			req.setAttribute("msg", msg);
+			req.getRequestDispatcher("result.jsp").forward(req, resp);
 		}
 	}
+	
+	
 }

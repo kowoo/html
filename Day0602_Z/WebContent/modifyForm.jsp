@@ -10,9 +10,9 @@
 <body>
 	<%
 		Member m = (Member)session.getAttribute("user");
-		String name = m.getName();
-		String pw = m.getPw();
-		String email = m.getEmail();
+			String name = m.getName();
+			String pw = m.getPw();
+			String email = m.getEmail();
 	%>
 	<form action="modify" method="post">
 		<table>
