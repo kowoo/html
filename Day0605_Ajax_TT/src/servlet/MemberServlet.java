@@ -95,10 +95,16 @@ public class MemberServlet extends HttpServlet{
 			resp.getWriter().println(result);
 		}else if(command.equals("delete")) {
 			System.out.println("여기 들어오긴 하니?");
-			String userid = req.getParameter("userid");
-			service.delete(userid);
-			String result =""; 
-			resp.getWriter().println(result);
+			String id = req.getParameter("id");
+			System.out.println(id);
+			boolean result = service.delete(id);
+			String data="";
+			if(result) {
+				data = "{\"result\" : 삭제완료}";
+			}else {
+				data = "{\"result\" : 삭제실패}";
+			}
+			resp.getWriter().println(data);
 		}
 		
 	}//doProc end

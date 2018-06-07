@@ -8,7 +8,7 @@ public class ConnectionProvider {
 	private static final String URL="jdbc:oracle:thin:@localhost:1521:XE";
 	private static final String USER="kwh";
 	private static final String PASSWORD="1";
-
+	
 	public ConnectionProvider(){
 	}
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
@@ -16,3 +16,4 @@ public class ConnectionProvider {
 		return DriverManager.getConnection(URL, USER, PASSWORD);
 	}
 }
+

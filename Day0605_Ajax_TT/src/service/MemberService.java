@@ -61,11 +61,10 @@ public class MemberService {
 	}
 	public boolean delete(String id) {
 		int deleteResult = memberDao.deleteMember(id);
-		boolean result = false;
 		if(deleteResult > 0) {
-			result = true;
+			return true;
 		}
-		return result;
+		return false;
 	}
 	
 	

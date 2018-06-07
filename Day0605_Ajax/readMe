@@ -14,10 +14,10 @@ Ajax (Asynchronous Javascript and XML) *대충 쉽게 이해하기: 화면을 �
 			$.ajax({옵션})의 형태를 가진다
 			예)
 			$.ajax({
-				url: "전송url",
-				type: "전송방식(get,post)",
-				data: "전송할 데이터",
-				dataType: "요청 데이터 타입(html, text, json, xml)";,
+				url: "전송할 url",
+				type: "전송할 방식(get,post)",
+				data: "전송할 데이터", // ex) {d : ${abc} 같이 k:v 형식도 가능}
+				dataType: "요청 데이터 타입(html, text, json, xml)";, 받아올 데이터 타입
 				success : function() {
 					 요청이 제대로 전송되었을 때 실행하는 함수
 					 실행문;

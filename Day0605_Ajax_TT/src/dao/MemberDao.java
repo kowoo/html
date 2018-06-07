@@ -24,7 +24,6 @@ public class MemberDao {
 			pstmt.setString(3, member.getName());
 			pstmt.setString(4, member.getEmail());
 			result = pstmt.executeUpdate();
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,9 +58,7 @@ public class MemberDao {
 			pstmt.setString(2, member.getName());
 			pstmt.setString(3, member.getEmail());
 			pstmt.setString(4, member.getId());
-			
 			result = pstmt.executeUpdate();
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,9 +86,7 @@ public class MemberDao {
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,id);
-			
 			result = pstmt.executeUpdate();
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -115,25 +110,19 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Member result = null;
-		
 		try {
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,id);
-			
 			rs = pstmt.executeQuery();
-			
 			if(rs.next()) {
 				result = new Member();
-				
 				result.setId(rs.getString("id"));
 				result.setPw(rs.getString("pw"));
 				result.setName(rs.getString("name"));
 				result.setEmail(rs.getString("email"));
 				result.setRegDate(rs.getDate("regdate"));
 			}
-			
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -152,21 +141,17 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
 	public Member selectOneByEmail(String email) {
 		String sql ="select * from member where email = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Member result = null;
-		
 		try {
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,email);
-			
 			rs = pstmt.executeQuery();
-			
 			if(rs.next()) {
 				result = new Member();
 				result.setId(rs.getString("id"));
@@ -175,8 +160,6 @@ public class MemberDao {
 				result.setEmail(rs.getString("email"));
 				result.setRegDate(rs.getDate("regdate"));
 			}
-			
-
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -195,22 +178,16 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
-	
-	
-
 	public List<Member> selectAll() {
 		String sql ="select * from member";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Member> result = new ArrayList<Member>();
-		
 		try {
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
 			while(rs.next()) {
 				Member member = new Member();
 				member.setId(rs.getString("id"));

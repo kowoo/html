@@ -90,11 +90,36 @@
 					//테이블에 tr추가
 					//tr, td 추가
 					var tr = $("<tr>");
+					var btn = $("<input type='button' value='x'>");
 					$("<td>").text(data[i].id).appendTo(tr);
 					$("<td>").text(data[i].email).appendTo(tr);
 					$("<td>").text(data[i].name).appendTo(tr);
-					$('<button onclick="delBtn();">삭제</button>').appendTo(tr); //밸류에 넣지말자....
+					$("<td>").append(btn).appendTo(tr); // appendTo는 부모요소에 자식요소를 집어넣는것, append는 자식요소를 추가하는것
+					//$('<button onclick="delBtn();">삭제</button>').appendTo(tr); //밸류에 넣지말자....
 					tr.appendTo(table);
+					
+					//이렇게 작성하면 뭘하던지 계속 마지막 녀석만 선택됨. 첫번째 삭제버튼 눌러도 마지막 id가 나와버려
+					//왜 이렇게 되냐면 data[i]의 i가 하나의 변수로 저장이 되어버렸기 때문이다.
+					//삭제 function은 작성 당시에는 i가 계속 변하고 있지만
+					//실제로는 클릭을 할 때 작동을 하기 때문에 저장된 i는 최종값인 마지막 녀석이 되어버림.
+					//이걸 방지하기 위해서 즉시 실행함수로 만들어주자.
+					(function(m) {
+						btn.on("click",function() {
+							$.ajax({
+								url:"member?command=delete",
+								data: {"id":data[m].id},
+								type: "post",
+								dataType: "json",
+								success: function(data) {
+									alert(data.result);
+									createList();
+								}
+							});
+							
+						});
+					})(i);
+					
+
 				}
 			}
 		});
@@ -112,10 +137,8 @@
 					alert("삭제실패");
 				}
 			}
-			
 		});
 	}
-	
 	
 </script>
 <style type="text/css">
@@ -172,12 +195,3 @@
 	</table>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
