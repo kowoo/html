@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.Members" %>
+<%@ page import="model.Member" %>
 <%--
 	빈(Bean)객체 하나 만들어서 포워드.
  --%>
-<jsp:useBean id="member" class="model.Members" scope="request"></jsp:useBean>
+<jsp:useBean id="member" class="model.Member" scope="request"></jsp:useBean>
 <jsp:setProperty property="address" name="member" value="서초구"/>
 <%
 // 	Member member = new Member();

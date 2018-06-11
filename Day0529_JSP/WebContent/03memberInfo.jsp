@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="member" class="model.Members"/> <!-- 뒤에 /는 닫아주는 역할 -->
+<jsp:useBean id="member" class="model.Member"/> <!-- 뒤에 /는 닫아주는 역할 -->
 <%-- 
 <jsp:setProperty property="id" name="member"/>
 <jsp:setProperty property="password" name="member"/>

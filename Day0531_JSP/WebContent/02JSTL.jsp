@@ -1,4 +1,4 @@
-<%@page import="model.Members"%>
+<%@page import="model.Member"%>
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,7 +6,7 @@
 <%-- <c:set var="변수명"> : jsp에서 사용할 변수 선언 및 속성 지정
 				el에서도 사용 가능하다! --%>
 <c:set var="msg">HELLO</c:set>
-<c:set var="member" value="<%=new Members()%>"/>
+<c:set var="member" value="<%=new Member()%>"/>
 
 <c:set var="map" value = "<%=new HashMap<String,Object>()%>" scope="request"></c:set>
 <%-- 만들어진 속성에 값 넣기 --%>

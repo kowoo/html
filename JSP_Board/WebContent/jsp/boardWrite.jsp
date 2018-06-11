@@ -33,13 +33,9 @@
 		input{
 			border: none;
 		}
-		
-	
 	</style>
 	<script type="text/javascript">
-		
 		$(function() {
-			
 			//1번 방법
 //			var name = $('#name')
 //			var nameError = $('#nameError')
@@ -80,10 +76,12 @@
 			});
 			$("#email").blur(function(){
 				var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
- 				if(($("#email").val())!="" && !regExp.test($("#email").val())) {
-					$("#email").siblings().text('이메일 양식을 지켜주세요.');
+				if(($("#email").val())!="" && !regExp.test($("#email").val())) {
+					$("#email").siblings().text('이메일 양식을 지켜주세요!');
 				}
+			 return false;
 			});
+			
 		});
 	</script>
 </head>
@@ -99,13 +97,13 @@
 				<th>*작성자</th>
 				<td><input type="text" id="name" name="name" class="input"><span id="nameError" style="color:red;"></span></td>
 			</tr>
-			<tr>
+			<tr id="">
 				<th>*비밀번호</th>
 				<td><input type="text" id="pass" name="pass" class="input"><span id="passError" style="color:red;"></span></td>
 			</tr>
 			<tr>
 				<th>*이메일</th>
-				<td><input type="text" id="email" name="email" class="input"><span id="emailError" style="color:red;"></span></td>
+				<td><input type="text" id="email" name="email" class="input"><span class="span"></span></td>
 			</tr>
 			<tr>
 				<th>*제목</th>

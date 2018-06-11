@@ -11,18 +11,14 @@ import dao.BoardDao;
 import dao.BoardDaoImp;
 import model.Board;
 
-public class BoardListAction implements Action {
+public class BoardListFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String url = "jsp/boardList.jsp";
+		String url = "JSP/boardList.jsp";
 		BoardDao dao = BoardDaoImp.getInstance();
-		List<Board> boardList = dao.selectAll();
+		List<Board> boardList = dao.selectAllBoard();
 		
 		req.setAttribute("boardList", boardList);
 		req.getRequestDispatcher(url).forward(req, resp);
-		//localhost:8081/contextpath/요청 의 형식
-		//localhost:8081/contextpath/board
-		//그냥 포워딩을 하게 되면 localhost:8081/contextpath의 /boardList.jsp로 가게됨.
-		//근데 우리는 폴더 안에 jsp를 넣었으니까 jsp/boardList.jsp를 해줘야한다. 
 	}
 }

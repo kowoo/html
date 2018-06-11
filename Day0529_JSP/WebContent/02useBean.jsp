@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "model.Members" %>    
+<%@ page import = "model.Member" %>    
 <%
-    	Members m = (Members)request.getAttribute("member");
+    	Member m = (Member)request.getAttribute("member");
     %>
-<jsp:useBean id = "member" class="model.Members"/>
+<jsp:useBean id = "member" class="model.Member"/>
 <jsp:setProperty name="member" property="password" value="123"/>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
