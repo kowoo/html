@@ -37,7 +37,45 @@
 			display: inline;
 			border: none;
 		}
+		button{
+			border: none;
+		}
+		#list{
+			border-left: none;
+		}
+		.login{
+			display: none;
+		}
 	</style>
+	<script type="text/javascript">
+	$(function(){
+		<% if(session.getAttribute("userId")!=null) {
+			%>
+			$(".login").show();
+// 			$("#modify").show();
+// 			$("#delete").show();
+			<%
+		} else {
+		%>
+			$(".login").hide();
+			//$("#modify").css("display","none");
+			//$("#delete").hide();
+			<%
+		}
+		%>
+	});	
+	function deleteBoard() {
+		var check = confirm("이 글을 삭제할까요?");
+		if(check) {
+			location.href ="board.do?command=board_delete&num=${board.num}";
+		} else {
+			return false;
+		}
+	}
+	function modifyBoard() {
+		location.href ="location.href='board.do?command=board_modify_form&num=${board.num}";
+	}
+	</script>
 </head>
 <body>
 	<div class="wrap">
@@ -57,13 +95,13 @@
 				<td colspan="3"><textarea readonly="readonly">${board.content}</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="4">
-					<input type="button" value="새 글쓰기" onclick="location.href='board?command=board_write_form'" style="margin-left: 20px" >
-					<input type="button" value="수정" 
-					onclick="open_win('board?command=board_check_pass_form&num=${board.num}','modify')" style="margin-left: 50px" >
-					<input type="button" value="삭제" 
-					onclick="open_win('board?command=board_check_pass_form&num=${board.num}','delete')" style="margin-left: 50px" >
-					<input type="button" value="목록" onclick="location.href='board?command=board_list'" style="margin-left: 250px" >
+				<td colspan="3">
+					<input type="button" value="새 글쓰기" onclick="location.href='board?command=board_write_form'" style="margin-left: 20px">
+					<button onclick="modifyBoard();" style="margin-left: 30px" id="modify" class="login">수정</button>
+					<button onclick="deleteBoard();" style="margin-left: 295px" id="delete" class="login">삭제</button>
+				</td>
+				<td>
+					<input type="button" value="목록" onclick="location.href='board?command=board_list'" id="list">
 				</td>
 			</tr>
 		</table>
@@ -80,7 +118,7 @@
 		<c:forEach items="${boardList}" var="board">
 			<tr>
 				<td class="footer">${board.num}</td>
-				<td class="footer"><a href="board?command=board_view&num=${board.num}">${board.title}</a></td>
+				<td class="footer" style="text-align:left" width="250px"><a href="board?command=board_view&num=${board.num}">${board.title}</a></td>
 				<td class="footer">${board.name}</td>
 				<td class="footer">${board.writeDate}</td>
 				<td class="footer">${board.readCount}</td>

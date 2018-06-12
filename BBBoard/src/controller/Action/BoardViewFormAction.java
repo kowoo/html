@@ -15,11 +15,10 @@ public class BoardViewFormAction implements Action {
 		String url = "JSP/boardView.jsp";
 		String num = req.getParameter("num");
 		BoardDao dao = BoardDaoImp.getInstance();
+		dao.upReadCount(num);
 		req.setAttribute("title", dao.selectBoard(num).getTitle());
 		req.setAttribute("board", dao.selectBoard(num));
 		req.setAttribute("boardList", dao.selectAllBoard());
 		req.getRequestDispatcher(url).forward(req, resp);
-		
-		
 	}
 }

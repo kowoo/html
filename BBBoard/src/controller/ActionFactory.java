@@ -1,8 +1,6 @@
 package controller;
 
 import controller.Action.Action;
-import controller.Action.BoardCheckPassAction;
-import controller.Action.BoardCheckPassFormAction;
 import controller.Action.BoardDeleteAction;
 import controller.Action.BoardListFormAction;
 import controller.Action.BoardModifyAction;
@@ -24,7 +22,7 @@ public class ActionFactory{
 	public static Action getAction(String command) {
 		Action action=null;
 		System.out.println(command+" 시작");
-		//보드 액션 9개
+		//보드 액션
 		if(command.equals("board_list")) {
 			action= new BoardListFormAction();
 		}else if(command.equals("board_write_form")) {
@@ -33,10 +31,6 @@ public class ActionFactory{
 			action= new BoardWriteAction();
 		}else if(command.equals("board_view")) {
 			action= new BoardViewFormAction();
-		}else if(command.equals("board_check_pass_form")) {
-			action= new BoardCheckPassFormAction();
-		}else if(command.equals("board_check_pass")) {
-			action= new BoardCheckPassAction();
 		}else if(command.equals("board_modify_form")) {
 			action= new BoardModifyFormAction();
 		}else if(command.equals("board_modify")) {
@@ -45,7 +39,8 @@ public class ActionFactory{
 			action= new BoardDeleteAction();
 		}
 		//보드 액션
-		//멤버 액션 7개
+		
+		//멤버 액션
 		else if(command.equals("member_join_form")) {
 			action = new MemberJoinFormAction();
 		}else if(command.equals("member_join")) {

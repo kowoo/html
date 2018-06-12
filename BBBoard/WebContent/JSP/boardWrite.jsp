@@ -40,15 +40,7 @@
 	<script type="text/javascript">
 	
 	$(function(){
-		<%-- 
-		<% if(request.getAttribute("id")==null) {
-			%>
-			var passTap = document.getElementById("passTap");
-			passTap.style.display="none";
-			<%
-			}
-		%>
-		 --%>
+		
 		$(".input").blur(function(){
 			if(($(this).val())=="") {
 				$(this).siblings().text(' 필수 입력');
@@ -60,18 +52,14 @@
 </head>
 <body>
 	<div class="wrap">
-		<h1>게시글 등록</h1>
+		<h1>자유게시판 / 글쓰기</h1>
 		<h5>*는 필수입력 항목입니다.</h5>
 		<form name="frm" action="board" method="post">
 			<input type="hidden" name="command" value="board_write">
 			<table>
 				<tr>
 					<th>*작성자</th>
-					<td><input type="text" id="name" name="name" class="input"><span class="span"></span></td>
-				</tr>
-				<tr id="passTap">
-					<th>*비밀번호</th>
-					<td><input type="password" id="pass" name="pass" class="input" value=${name}><span class="span"></span></td>
+					<td><input type="text" id="name" name="name" class="input" value="${name}" readonly="readonly"><span class="span"></span></td>
 				</tr>
 				<tr>
 					<th>*제목</th>

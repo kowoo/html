@@ -44,16 +44,20 @@
 	<script type="text/javascript">
 		$(function(){
 			<% if(session.getAttribute("userId")!=null) {
+				//로그인
 				%>
-				$("#loginin").hide();
-				$("#logoutout").show();
+				$("#login").hide();
+				$("#join").hide();
+				$("#logout").show();
 				$("#modify").show();
 				<%
 			} else {
+				//비로그인
 			%>
-				$("#logoutout").hide();
+				$("#logout").hide();
 				$("#modify").hide();
-				$("#loginin").show();
+				$("#login").show();
+				$("#join").show();
 // 				$("#loginin").css("display","inline");
 // 				$("#logoutout").css("display","none");
 				<%
@@ -69,10 +73,10 @@
 			<!-- 129x32 사이즈 -->
 			<img alt="자유게시판" class="headername" src="IMG/board1.png" onclick="location.href='board?command=board_list'">
 			<!--<h2 class="headerA" style="color:white" onclick="location.href='board?command=board_list'">문의게시판</h2> -->
-			<a href="member?command=member_login_form" style="color:white" class="headerA" id="loginin"><small>로그인</small></a>
-			<a href="member?command=member_logout" style="color:white" class="headerA" id="logoutout"><small>로그아웃</small></a>
-			<a href="member?command=member_modify_form&id=${userId}" style="color:white" class="headerA" id="modify"><small>정보수정</small></a>
-			<a href="member?command=member_join_form" style="color:white" class="headerB"><small>회원가입</small></a>
+			<a href="member?command=member_login_form" style="color:white" class="headerA" id="login"><small>로그인</small></a>
+			<a href="member?command=member_logout" style="color:white" class="headerA" id="logout"><small>로그아웃</small></a>
+			<a href="member.do?command=member_modify_form&id=${userId}" style="color:white" class="headerA" id="modify"><small>정보수정</small></a>
+			<a href="member?command=member_join_form" style="color:white" class="headerB" id="join"><small>회원가입</small></a>
 		</div>
 	</div>
 </body>

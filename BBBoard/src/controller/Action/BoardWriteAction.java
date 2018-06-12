@@ -16,7 +16,6 @@ public class BoardWriteAction implements Action {
 		BoardDao dao = BoardDaoImp.getInstance();
 		Board b = new Board();
 		b.setName(req.getParameter("name"));
-		b.setPass(req.getParameter("pass"));
 		b.setTitle(req.getParameter("title"));
 		b.setContent(req.getParameter("content"));
 		int result = dao.insertBoard(b);
@@ -35,3 +34,4 @@ public class BoardWriteAction implements Action {
 		
 	}
 }
+

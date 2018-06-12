@@ -4,12 +4,30 @@
   	<welcome-file-list>
     	<welcome-file>JSP/index.jsp</welcome-file>
   	</welcome-file-list>
-  	<filter>
+	<filter>
 		<filter-name>loginCheckFilter</filter-name>
 		<filter-class>filter.LoginCheckFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>loginCheckFilter</filter-name>
-		<url-pattern>/member?command=member_modify_form</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
+	<servlet>
+		<servlet-name>BoardServlet</servlet-name>
+		<servlet-class>controller.BoardServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MemberServlet</servlet-name>
+		<servlet-class>controller.MemberServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BoardServlet</servlet-name>
+		<url-pattern>/board.do</url-pattern>
+		<url-pattern>/board</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MemberServlet</servlet-name>
+		<url-pattern>/member.do</url-pattern>
+		<url-pattern>/member</url-pattern>
+	</servlet-mapping>
 </web-app>

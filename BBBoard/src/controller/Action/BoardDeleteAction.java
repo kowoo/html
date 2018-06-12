@@ -16,14 +16,17 @@ public class BoardDeleteAction implements Action {
 		String num = req.getParameter("num");
 		BoardDao dao = BoardDaoImp.getInstance();
 		int result = dao.deleteBoard(num);
-		String url = "";
+		String msg = "";
+		String url = "board?command=board_list";
 		if(result>0) {
 			//삭제 성공
-			url = "JSP/boardList.jsp";
+			msg = "삭제 하였습니다.";
 		}else {
 			//삭제 실패
-			url = "JSP/boardList.jsp";
+			msg = "삭제 실패...";
 		}
-		req.getRequestDispatcher(url).forward(req, resp);
+		req.setAttribute("url", url);
+		req.setAttribute("msg", msg);
+		req.getRequestDispatcher("JSP/result.jsp").forward(req, resp);
 	}
 }

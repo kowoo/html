@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Members;
+import model.Member;
 
 public class MemberDao {
 	private static MemberDao instance;
@@ -21,7 +21,7 @@ public class MemberDao {
 		return instance;
 	}
 
-	public void insertMember(Members m) {
+	public void insertMember(Member m) {
 		String sql = "insert into values (members_seq.nextval,?,?,?,?)";
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -45,7 +45,7 @@ public class MemberDao {
 			}
 		}
 	}
-	public void updateMember(Members m) {
+	public void updateMember(Member m) {
 		String sql = "update members"
 				+ 			"	 set  pw=?,"
 				+			"       name=?,"
@@ -73,9 +73,9 @@ public class MemberDao {
 			}
 		}		
 	}
-	public Members selectMember(String id) {
+	public Member selectMember(String id) {
 		String sql = "select * from members where id='"+"?"+"'";
-		Members tmp=null;
+		Member tmp=null;
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -86,7 +86,7 @@ public class MemberDao {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				tmp = new Members();
+				tmp = new Member();
 				tmp.setMemberNumber(rs.getInt("memberNumber"));
 				tmp.setId(rs.getString("id"));
 				tmp.setPw(rs.getString("pw"));
@@ -106,9 +106,9 @@ public class MemberDao {
 		}
 		return tmp;
 	}
-	public List<Members> selectAll() {
+	public List<Member> selectAll() {
 		String sql = "select * from members";
-		List<Members> list=null;
+		List<Member> list=null;
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -116,10 +116,10 @@ public class MemberDao {
 		try {
 			con = ConnectionProvider.getConnection();
 			pstmt = con.prepareStatement(sql);
-			list = new ArrayList<Members>();
+			list = new ArrayList<Member>();
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				Members tmp = new Members();
+				Member tmp = new Member();
 				tmp.setMemberNumber(rs.getInt("memberNumber"));
 				tmp.setId(rs.getString("id"));
 				tmp.setPw(rs.getString("pw"));

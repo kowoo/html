@@ -1,4 +1,4 @@
-package dao;
+/*package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Post;
 import model.Post;
 
 public class PostDao {
@@ -72,9 +73,9 @@ public class PostDao {
 			}
 		}		
 	}
-	public Post selectMember(String id) {
-		String sql = "select * from members where id='"+"?"+"'";
-		Members tmp=null;
+	public Post selectPost(String id) {
+		String sql = "select * from Post where id='"+"?"+"'";
+		Post tmp=null;
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -85,8 +86,8 @@ public class PostDao {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				tmp = new Members();
-				tmp.setMemberNumber(rs.getInt("memberNumber"));
+				tmp = new Post();
+				tmp.setPostNumber(rs.getInt("PostNumber"));
 				tmp.setId(rs.getString("id"));
 				tmp.setPw(rs.getString("pw"));
 				tmp.setName(rs.getString("name"));
@@ -105,9 +106,9 @@ public class PostDao {
 		}
 		return tmp;
 	}
-	public List<Members> selectAll() {
-		String sql = "select * from members";
-		List<Members> list=null;
+	public List<Post> selectAll() {
+		String sql = "select * from Post";
+		List<Post> list=null;
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -115,11 +116,11 @@ public class PostDao {
 		try {
 			con = ConnectionProvider.getConnection();
 			pstmt = con.prepareStatement(sql);
-			list = new ArrayList<Members>();
+			list = new ArrayList<Post>();
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				Members tmp = new Members();
-				tmp.setMemberNumber(rs.getInt("memberNumber"));
+				Post tmp = new Post();
+				tmp.setPostNumber(rs.getInt("PostNumber"));
 				tmp.setId(rs.getString("id"));
 				tmp.setPw(rs.getString("pw"));
 				tmp.setName(rs.getString("name"));
@@ -140,7 +141,7 @@ public class PostDao {
 		return list;
 	}	
 	public void delete(String id) {
-		String sql = "delete from members where id='"+"?"+"'";
+		String sql = "delete from Post where id='"+"?"+"'";
 		Connection con=null;
 		PreparedStatement pstmt=null;
 
@@ -161,3 +162,4 @@ public class PostDao {
 		}
 	}
 }
+*/

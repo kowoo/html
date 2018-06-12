@@ -58,10 +58,6 @@
 					<th>*작성자</th>
 					<td><input type="text" id="name" name="name" class="input" value="${board.name}"><span class="span"></span></td>
 				</tr>
-				<tr id="passTap">
-					<th>*비밀번호 설정</th>
-					<td><input type="password" id="pass" name="pass" class="input" value="${board.pass}"><span class="span"></span></td>
-				</tr>
 				<tr>
 					<th>*제목</th>
 					<td><input type="text" id="title" name="title" class="input" value="${board.title}"><span class="span"></span></td>
