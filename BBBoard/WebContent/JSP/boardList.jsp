@@ -16,6 +16,9 @@
 		.title{
 			text-align: left;
 		}
+		#now{
+			color: blue;
+		}
 	</style>
 	<script type="text/javascript">
 	</script>
@@ -47,9 +50,18 @@
 			</tr>
 		</table>
 		<a href="board?command=board_list&page=1">[처음]</a>
-			<c:forEach var="page" begin="1" end="${pageTotalCount}">
-				<a href="board?command=board_list&page=${page}">[${page}]</a>
+			<a href="board?command=board_list&page=${nowPage-1}">[이전]</a>
+			<c:forEach var="page" begin="${minPage}" end="${maxPage}">
+				<c:if test="${page le maxPage && minPage le page}">
+					<c:if test="${page ne nowPage}">
+						<a href="board?command=board_list&page=${page}">[${page}]</a>
+					</c:if>
+					<c:if test="${page eq nowPage}">
+						<a href="board?command=board_list&page=${page}" id="now"><b>[${page}]</b></a>
+					</c:if>
+				</c:if>
 			</c:forEach>
+			<a href="board?command=board_list&page=${nowPage+1}">[다음]</a>
 		<a href="board?command=board_list&page=${pageTotalCount}">[마지막]</a>
 	</div>
 </body>

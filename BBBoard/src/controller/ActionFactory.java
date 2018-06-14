@@ -8,6 +8,9 @@ import controller.Action.BoardModifyFormAction;
 import controller.Action.BoardViewFormAction;
 import controller.Action.BoardWriteAction;
 import controller.Action.BoardWriteFormAction;
+import controller.Action.CommentDeleteAction;
+import controller.Action.CommentListFormAction;
+import controller.Action.CommentWriteAction;
 import controller.Action.MemberDeleteAction;
 import controller.Action.MemberJoinAction;
 import controller.Action.MemberJoinFormAction;
@@ -55,12 +58,23 @@ public class ActionFactory{
 			action = new MemberModifyFormAction();
 		}else if(command.equals("member_modify")) {
 			action = new MemberModifyAction();
-		}else if(command.equals("member_viewForm")) {
+		}else if(command.equals("member_view")) {
 			action = new MemberViewFormAction();
 		}else if(command.equals("member_delete")) {
 			action = new MemberDeleteAction();
 		}
 		//멤버 액션
+		
+		//코멘트 액션
+		else if(command.equals("comment_list")) {
+			action = new CommentListFormAction();
+		}else if(command.equals("comment_write")) {
+			action = new CommentWriteAction();
+		}else if(command.equals("comment_delete")) {
+			action = new CommentDeleteAction();
+		}
+		//코멘트 액션
+		
 		return action;
 	}
 }

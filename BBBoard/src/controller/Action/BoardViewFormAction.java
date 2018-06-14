@@ -18,7 +18,11 @@ public class BoardViewFormAction implements Action {
 		dao.upReadCount(num);
 		req.setAttribute("title", dao.selectBoard(num).getTitle());
 		req.setAttribute("board", dao.selectBoard(num));
+		req.setAttribute("writerId", dao.selectBoard(num).getWriterId());
 		req.setAttribute("boardList", dao.selectAllBoard());
+		req.setAttribute("num", num);
+		//req.setAttribute("userId", req.getSession().getAttribute("userId").toString());
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
 }
+

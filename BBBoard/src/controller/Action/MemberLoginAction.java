@@ -3,6 +3,7 @@ package controller.Action;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,6 +27,7 @@ public class MemberLoginAction implements Action {
 				msg = "로그인 성공";
 				url = "board?command=board_list";
 				req.getSession().setAttribute("userId", id);
+				req.getSession().setAttribute("userName", dao.selectMember(id).getName());
 			}else {
 				//로그인 실패
 				msg = "아이디 혹은 비밀번호가 틀렸습니다.";

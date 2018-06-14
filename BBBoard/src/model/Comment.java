@@ -3,20 +3,39 @@ package model;
 import java.util.Date;
 
 public class Comment {
-	private String title;
 	private int num;
+	private int count;
+	private String writerId;
 	private String name;
 	private String text;
 	private Date writeDate;
 	public Comment() {
 	}
-	public Comment(String title, int num, String name, String text, Date writeDate) {
-		super();
-		this.title = title;
+	public Comment(int num, int count, String writerId, String name, String text, Date writeDate) {
 		this.num = num;
+		this.count = count;
+		this.writerId = writerId;
 		this.name = name;
 		this.text = text;
 		this.writeDate = writeDate;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getWriterId() {
+		return writerId;
+	}
+	public void setWriterId(String writerId) {
+		this.writerId = writerId;
 	}
 	public String getName() {
 		return name;
@@ -36,21 +55,9 @@ public class Comment {
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
 	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
 	@Override
 	public String toString() {
-		return "Comment [title=" + title + ", num=" + num + ", name=" + name + ", text=" + text + ", writeDate="
-				+ writeDate + "]";
+		return "Comment [num=" + num + ", count=" + count + ", writerId=" + writerId + ", name=" + name + ", text="
+				+ text + ", writeDate=" + writeDate + "]";
 	}
 }

@@ -24,7 +24,6 @@ public class LoginCheckFilter implements Filter {
 		} else {
 			((HttpServletResponse)resp).sendRedirect("member?command=member_login_form");
 		}
-		
 	}
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {

@@ -13,14 +13,17 @@ import model.Board;
 public class BoardDeleteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String num = req.getParameter("num");
 		BoardDao dao = BoardDaoImp.getInstance();
-		int result = dao.deleteBoard(num);
+		String userId = ((HttpServletRequest)req).getSession().getAttribute("userId").toString();
+		String num = req.getParameter("num");
+		int result = dao.deleteBoard(num,userId);
 		String msg = "";
 		String url = "board?command=board_list";
 		if(result>0) {
 			//삭제 성공
 			msg = "삭제 하였습니다.";
+		}else if(result<0){
+			msg = "본인이 작성한 글만 삭제할 수 있습니다.";
 		}else {
 			//삭제 실패
 			msg = "삭제 실패...";

@@ -43,12 +43,20 @@
 		#list{
 			border-left: none;
 		}
-		.login{
+		.writer{
 			display: none;
 		}
 	</style>
 	<script type="text/javascript">
+	
 	$(function(){
+		<%-- 수정 및 삭제 버튼은 작성자가 접근했을 경우에만 생성한다.--%>
+		if(("${writerId}")==("${userId}")) {
+			$(".writer").show();
+		}else {
+			$(".writer").hide();
+		}
+<%-- 		
 		<% if(session.getAttribute("userId")!=null) {
 			%>
 			$(".login").show();
@@ -63,17 +71,18 @@
 			<%
 		}
 		%>
+		 --%>
 	});	
 	function deleteBoard() {
 		var check = confirm("이 글을 삭제할까요?");
 		if(check) {
-			location.href ="board.do?command=board_delete&num=${board.num}";
+			location.href ='board?command=board_delete&num=${board.num}';
 		} else {
 			return false;
 		}
 	}
 	function modifyBoard() {
-		location.href ="location.href='board.do?command=board_modify_form&num=${board.num}";
+		location.href ='board?command=board_modify_form&num=${board.num}';
 	}
 	</script>
 </head>
@@ -96,15 +105,18 @@
 			</tr>
 			<tr>
 				<td colspan="3">
-					<input type="button" value="새 글쓰기" onclick="location.href='board?command=board_write_form'" style="margin-left: 20px">
-					<button onclick="modifyBoard();" style="margin-left: 30px" id="modify" class="login">수정</button>
-					<button onclick="deleteBoard();" style="margin-left: 295px" id="delete" class="login">삭제</button>
+					<input type="button" value="새 글쓰기" onclick="location.href='board.do?command=board_write_form'" style="margin-left: 20px">
+					<button onclick="modifyBoard();" style="margin-left: 30px" id="modify" class="writer">수정</button>
+					<button onclick="deleteBoard();" style="margin-left: 295px" id="delete" class="writer">삭제</button>
 				</td>
 				<td>
 					<input type="button" value="목록" onclick="location.href='board?command=board_list'" id="list">
 				</td>
 			</tr>
 		</table>
+		<jsp:include page="comment.jsp">
+			<jsp:param name="num" value="${num}"/>
+		</jsp:include>
 		<br>
 	</div>
 	<table class="list">

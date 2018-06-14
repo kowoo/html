@@ -21,6 +21,7 @@ public class BoardWriteFormAction implements Action {
 		}
 		String url = "JSP/boardWrite.jsp";
 		req.setAttribute("name", m.getName());
+		req.setAttribute("userId", req.getSession().getAttribute("userId"));
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
 }

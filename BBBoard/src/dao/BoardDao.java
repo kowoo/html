@@ -6,8 +6,8 @@ import model.Board;
 
 public interface BoardDao {
 	public int insertBoard(Board b);
-	public int updateBoard(Board b);
-	public int deleteBoard(String num);
+	public int updateBoard(Board b, String userId);
+	public int deleteBoard(String num, String userId);
 	public Board selectBoard(String num);
 	public List<Board> selectAllBoard();
 	public List<Board> selectAllBoard(int firstRow, int endRow);

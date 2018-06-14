@@ -20,16 +20,17 @@ public class BoardDaoImp implements BoardDao {
 	}
 	@Override
 	public int insertBoard(Board board) {
-		String sql="insert into board2 (num, title, name, content) values(board_seq2.nextval,?,?,?)";
+		String sql="insert into board2 (num, writerId, title, name, content) values(board_seq2.nextval,?,?,?,?)";
 		Connection connection=null;
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
 			connection = ConnectionProvider.getConnection();
 			pstmt = connection.prepareStatement(sql);
-			pstmt.setString(1, board.getTitle());
-			pstmt.setString(2, board.getName());
-			pstmt.setString(3, board.getContent());
+			pstmt.setString(1, board.getWriterId());
+			pstmt.setString(2, board.getTitle());
+			pstmt.setString(3, board.getName());
+			pstmt.setString(4, board.getContent());
 			result = pstmt.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -44,7 +45,7 @@ public class BoardDaoImp implements BoardDao {
 		return result;
 	}
 	@Override
-	public int updateBoard(Board board) {
+	public int updateBoard(Board board, String userId) {
 		String sql="update board2 set"
 				+ " 		title = ?,"
 				+ "			content = ?"
@@ -53,42 +54,16 @@ public class BoardDaoImp implements BoardDao {
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
+			if(!board.getWriterId().equals(userId)) {
+				return -1;
+			}
 			connection = ConnectionProvider.getConnection();
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getContent());
 			pstmt.setInt(3, board.getNum());
 			result = pstmt.executeUpdate();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (connection != null) connection.close();
-				if (pstmt != null) pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
-	public int updateBoardAll(Board board) {
-		String sql="update board2 set"
-				+ " 		title = ?,"
-				+ "         name = ?,"
-				+ "			content = ?"
-				+ " 		where num=?";
-		Connection connection=null;
-		PreparedStatement pstmt=null;
-		int result=0;
-		try {
-			connection = ConnectionProvider.getConnection();
-			pstmt = connection.prepareStatement(sql);
-			pstmt.setString(1, board.getTitle());
-			pstmt.setString(2, board.getName());
-			pstmt.setString(3, board.getContent());
-			pstmt.setInt(4, board.getNum());
-			result = pstmt.executeUpdate();
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -101,12 +76,15 @@ public class BoardDaoImp implements BoardDao {
 		return result;
 	}
 	@Override
-	public int deleteBoard(String num) {
+	public int deleteBoard(String num, String userId) {
 		String sql="delete from board2 where num=?";
 		Connection connection=null;
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
+			if(!selectBoard(num).getWriterId().equals(userId)) {
+				return -1;
+			}
 			connection = ConnectionProvider.getConnection();
 			pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, num);
@@ -138,6 +116,7 @@ public class BoardDaoImp implements BoardDao {
 			while(rs.next()) {
 				board = new Board();
 				board.setNum(rs.getInt("num"));
+				board.setWriterId(rs.getString("writerId"));
 				board.setTitle(rs.getString("title"));
 				board.setName(rs.getString("name"));
 				board.setContent(rs.getString("content"));
@@ -293,5 +272,4 @@ public class BoardDaoImp implements BoardDao {
 		}
 		return result;
 	}
-	
 }

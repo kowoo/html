@@ -15,6 +15,8 @@ public class BoardWriteAction implements Action {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		BoardDao dao = BoardDaoImp.getInstance();
 		Board b = new Board();
+		System.out.println(req.getParameter("userId"));
+		b.setWriterId(req.getParameter("userId"));
 		b.setName(req.getParameter("name"));
 		b.setTitle(req.getParameter("title"));
 		b.setContent(req.getParameter("content"));

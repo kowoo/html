@@ -56,6 +56,7 @@
 		<h5>*는 필수입력 항목입니다.</h5>
 		<form name="frm" action="board" method="post">
 			<input type="hidden" name="command" value="board_write">
+			<input type="hidden" id="userId" name="userId" value="${userId}">
 			<table>
 				<tr>
 					<th>*작성자</th>

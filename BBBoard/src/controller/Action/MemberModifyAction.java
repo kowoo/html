@@ -15,6 +15,7 @@ public class MemberModifyAction implements Action {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MemberDao dao = MemberDaoImp.getInstance();
 		String id = req.getParameter("id");
+		String userId = ((HttpServletRequest)req).getSession().getAttribute("userId").toString();
 		String pw = req.getParameter("pw");
 		Member m = new Member();
 		m.setId(id);
@@ -29,7 +30,7 @@ public class MemberModifyAction implements Action {
 		if(dao.selectMember(id)!=null) {
 			//비밀번호 검사
 			if(pw.equals(dao.selectMember(id).getPw())) {
-				result = dao.updateMember(m);
+				result = dao.updateMember(m,userId);
 			}else {
 				//수정 실패
 			}
@@ -40,6 +41,10 @@ public class MemberModifyAction implements Action {
 		if(result>0) {
 			//수정 성공
 			msg = "회원 정보 변경 완료";
+			url = "board?command=board_list";
+			url2 = "JSP/result.jsp";
+		} else if(result<0) {
+			msg = "본인의 정보만 수정할 수 있습니다!";
 			url = "board?command=board_list";
 			url2 = "JSP/result.jsp";
 		}

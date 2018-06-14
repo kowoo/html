@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Board {
 	private int num;
+	private String writerId;
 	private String title;
 	private String name;
 	private String content;
@@ -11,9 +12,10 @@ public class Board {
 	private Date writeDate;
 	public Board() {
 	}
-	public Board(int num, String title, String name, String content, int readCount,
+	public Board(int num, String writerId, String title, String name, String content, int readCount,
 			Date writeDate) {
 		this.num = num;
+		this.writerId = writerId;
 		this.title = title;
 		this.name = name;
 		this.content = content;
@@ -25,6 +27,12 @@ public class Board {
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public String getWriterId() {
+		return writerId;
+	}
+	public void setWriterId(String writerId) {
+		this.writerId = writerId;
 	}
 	public String getTitle() {
 		return title;
@@ -58,7 +66,7 @@ public class Board {
 	}
 	@Override
 	public String toString() {
-		return "Board [num=" + num + ", title=" + title + ", name=" + name
-				+ ", content=" + content + ", readCount=" + readCount + ", writeDate=" + writeDate + "]";
+		return "Board [num=" + num + ", writerId=" + writerId + ", title=" + title + ", name=" + name + ", content="
+				+ content + ", readCount=" + readCount + ", writeDate=" + writeDate + "]";
 	}
 }

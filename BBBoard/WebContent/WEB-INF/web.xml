@@ -20,14 +20,23 @@
 		<servlet-name>MemberServlet</servlet-name>
 		<servlet-class>controller.MemberServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CommentServlet</servlet-name>
+		<servlet-class>controller.CommentServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>BoardServlet</servlet-name>
-		<url-pattern>/board.do</url-pattern>
 		<url-pattern>/board</url-pattern>
+		<url-pattern>/board.do</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>MemberServlet</servlet-name>
-		<url-pattern>/member.do</url-pattern>
 		<url-pattern>/member</url-pattern>
+		<url-pattern>/member.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CommentServlet</servlet-name>
+		<url-pattern>/comment</url-pattern>
+		<url-pattern>/comment.do</url-pattern>
 	</servlet-mapping>
 </web-app>

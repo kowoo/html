@@ -45,7 +45,7 @@ public class MemberDaoImp implements MemberDao {
 		return result;
 	}
 	@Override
-	public int updateMember(Member m) {
+	public int updateMember(Member m, String userId) {
 		String sql = "update member2 "
 				+ "				 set pw    = ?,"
 				+ "					 name  = ?,"
@@ -55,6 +55,9 @@ public class MemberDaoImp implements MemberDao {
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
+			if(!m.getId().equals(userId)) {
+				return -1;
+			}
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, m.getPw());
@@ -75,12 +78,15 @@ public class MemberDaoImp implements MemberDao {
 		return result;
 	}
 	@Override
-	public int deleteMember(String id) {
+	public int deleteMember(String id, String userId) {
 		String sql = "delete from member2 where id="+id;
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
+			if(!id.equals(userId)) {
+				return -1;
+			}
 			conn = ConnectionProvider.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			result = pstmt.executeUpdate();

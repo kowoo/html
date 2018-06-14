@@ -56,7 +56,7 @@
 			<table>
 				<tr>
 					<th>*작성자</th>
-					<td><input type="text" id="name" name="name" class="input" value="${board.name}"><span class="span"></span></td>
+					<td><input type="text" id="name" name="name" class="input" value="${board.name}" readonly="readonly"><span class="span"></span></td>
 				</tr>
 				<tr>
 					<th>*제목</th>

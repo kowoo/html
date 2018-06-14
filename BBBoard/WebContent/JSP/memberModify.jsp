@@ -118,7 +118,7 @@
 						<input style="margin-left: 50px" type="button" value="돌아가기"
 							onclick="history.go(-1)">
 						<input style="margin-left: 50px" type="button" value="탈퇴"
-							onclick="location.href='board?command=member_delete'">
+							onclick="location.href='member.do?command=member_delete&id=${member.id}'">
 					</td>
 				</tr>
 			</table>
