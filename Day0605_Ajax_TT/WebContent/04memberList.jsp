@@ -124,21 +124,21 @@
 			}
 		});
 	}
-	function delBtn() {
-		$.ajax({
-			url:"member?command=delete",
-			data: this.val(),
-			type:'post',
-			dataType:'json',
-			success: function(data) {
-				if(data.result){
-					alert("삭제성공");
-				}else{
-					alert("삭제실패");
-				}
-			}
-		});
-	}
+// 	function delBtn() {
+// 		$.ajax({
+// 			url:"member?command=delete",
+// 			data: this.val(),
+// 			type:'post',
+// 			dataType:'json',
+// 			success: function(data) {
+// 				if(data.result){
+// 					alert("삭제성공");
+// 				}else{
+// 					alert("삭제실패");
+// 				}
+// 			}
+// 		});
+// 	}
 	
 </script>
 <style type="text/css">

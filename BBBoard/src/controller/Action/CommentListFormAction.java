@@ -22,9 +22,8 @@ public class CommentListFormAction  implements Action {
 		String num = req.getParameter("num");
 		System.out.println("넘버:"+num);
 		List<Comment> commentList = dao.selectAllCommentbyBoard(num);
-		System.out.println(commentList);
+		req.setAttribute("size",(commentList.size()));
 		String result = new Gson().toJson(commentList);
-		System.out.println(result);
 		resp.getWriter().println(result);
 	}
 }

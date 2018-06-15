@@ -19,11 +19,17 @@
 		#now{
 			color: blue;
 		}
+		table{
+		}
+		a{
+			font: bold;
+		}
+
 	</style>
 	<script type="text/javascript">
 	</script>
 </head>
-<body>
+<body background="IMG/simpson.png" style="background-repeat: no-repeat;">
 	<div id="wrap" align="center">
 		<table class="list">
 			<tr>
@@ -37,32 +43,34 @@
 				<tr>
 					<td>${board.num}</td>
 					<td class="title" width="250px">
-					<a href="board?command=board_view&num=${board.num}">${board.title}</a></td>
+						<a href="board?command=board_view&num=${board.num}">${board.title}</a>
+						<c:if test="${1 le board.comments}">
+							[${board.comments}]
+						</c:if>
+					</td>
 					<td id="name">${board.name}</td>
 					<td>${board.writeDate}</td>
 					<td>${board.readCount}</td>
 				</tr>
 			</c:forEach>
-			<tr>
-				<td colspan="5" align="right"><input type="button"
-					onclick="location.href='board.do?command=board_write_form'"
-					value="글쓰기"></td>
-			</tr>
 		</table>
-		<a href="board?command=board_list&page=1">[처음]</a>
-			<a href="board?command=board_list&page=${nowPage-1}">[이전]</a>
-			<c:forEach var="page" begin="${minPage}" end="${maxPage}">
-				<c:if test="${page le maxPage && minPage le page}">
-					<c:if test="${page ne nowPage}">
-						<a href="board?command=board_list&page=${page}">[${page}]</a>
-					</c:if>
-					<c:if test="${page eq nowPage}">
-						<a href="board?command=board_list&page=${page}" id="now"><b>[${page}]</b></a>
-					</c:if>
+			<c:if test="${2 le nowPage}">
+				<a href="board?command=board_list&page=1">[처음]</a>
+				<a href="board?command=board_list&page=${nowPage-1}">[이전]</a>
+			</c:if>
+			<c:forEach var="page" begin="${startPage}" end="${endPage}">
+				<c:if test="${page ne nowPage}">
+					<a href="board?command=board_list&page=${page}">[${page}]</a>
+				</c:if>
+				<c:if test="${page eq nowPage}">
+					<a href="board?command=board_list&page=${page}" id="now"><b>[${page}]</b></a>
 				</c:if>
 			</c:forEach>
-			<a href="board?command=board_list&page=${nowPage+1}">[다음]</a>
-		<a href="board?command=board_list&page=${pageTotalCount}">[마지막]</a>
+			<c:if test="${pageTotalCount > nowPage}">
+				<a href="board?command=board_list&page=${nowPage+1}">[다음]</a>
+				<a href="board?command=board_list&page=${pageTotalCount}">[마지막]</a>
+			</c:if>
+			<p><input type="button" onclick="location.href='board.do?command=board_write_form'" value="글쓰기"></p>
 	</div>
 </body>
 </html>

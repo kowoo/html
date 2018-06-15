@@ -21,6 +21,7 @@ public class MemberDeleteAction implements Action {
 		if(result>0) {
 			//삭제 성공
 			msg = "회원 탈퇴 완료.";
+			req.getSession().invalidate();
 		}else if(result<0){
 			msg = "접근 불가";
 		}else {

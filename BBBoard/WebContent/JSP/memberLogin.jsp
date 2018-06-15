@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="CSS/board2.css">
+<link rel="stylesheet" type="text/css" href="CSS/board.css">
 <title>로그인</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -40,7 +40,7 @@
 	<script type="text/javascript">
 	</script>
 </head>
-<body>
+<body background="IMG/simpson6.png" style="background-repeat: no-repeat;">
 	<div class="wrap">
 		<h1>로그인</h1>
 		<form name="frm" action="member" method="post">

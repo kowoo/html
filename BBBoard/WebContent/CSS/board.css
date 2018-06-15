@@ -7,7 +7,7 @@
 }
 
 h1 {
-	color: green; /* 글 색상 */
+	color: black; /* 글 색상 */
 }
 
 table {
@@ -18,12 +18,14 @@ table {
 }
 
 table td,th {
-	border: #d3d3d3 solid 1px; /* 경계선 색상 스타일 굵기 */
+	/* border: midnightblue solid 2px; /* 경계선 색상 스타일 굵기*/
+	border: none;
 	padding: 5px; /* 안쪽 여백 */
 }
 
 th {
-	background: yellowgreen; /* 배경색 */
+	background: black; /* 배경색 */
+	color: white;
 }
 
 img {

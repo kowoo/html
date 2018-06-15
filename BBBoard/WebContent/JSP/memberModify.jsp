@@ -79,7 +79,7 @@
 	});
 	</script>
 </head>
-<body>
+<body background="IMG/simpson7.png" style="background-repeat: no-repeat;">
 	<div class="wrap">
 		<h1>정보 수정</h1>
 		<p style="color:red"><small>${msg}</small></p>

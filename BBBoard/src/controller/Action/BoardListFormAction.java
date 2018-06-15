@@ -12,8 +12,8 @@ import dao.BoardDaoImp;
 import model.Board;
 
 public class BoardListFormAction implements Action {
-	private static final int NUM_OF_BOARD_PER_PAGE = 3;
-	private static final int NUM_OF_NAVI_PAGE = 3;
+	private static final int NUM_OF_BOARD_PER_PAGE = 10;
+	private static final int NUM_OF_NAVI_PAGE = 5;
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String url = "JSP/boardList.jsp";
@@ -42,10 +42,10 @@ public class BoardListFormAction implements Action {
 		int minPage = 1;
 		int maxPage = 1;
 		for(int i=1; i<pageNumber+1; i++) {
-			int tmp = i+4;
+			int tmp = i+3;
 			if((tmp)%5 == 0) {
 				if(tmp>totalCount) {
-					maxPage = totalCount;
+					maxPage = calPageTotalCount(totalCount);
 				}else {
 					maxPage = tmp;
 				}
@@ -54,8 +54,12 @@ public class BoardListFormAction implements Action {
 				minPage = i;
 			}
 		}
-		System.out.println("민페:"+minPage);
-		System.out.println("맥페:"+maxPage);
+		System.out.println("민페 : "+minPage);
+		System.out.println("맥페 : "+maxPage);
+		System.out.println("startPage : " + getStartPage(pageNumber));
+		System.out.println("endPage : " + getEndPage(pageNumber));
+		System.out.println("pageTotalCount : " + calPageTotalCount(totalCount));
+		System.out.println("totalcount : " + totalCount);
 		List<Board> boardList = dao.selectAllBoard(firstRow, endRow);
 		req.setAttribute("boardList", boardList);
 		req.setAttribute("pageTotalCount", calPageTotalCount(totalCount));

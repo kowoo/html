@@ -50,9 +50,9 @@
 	});
 	</script>
 </head>
-<body>
+<body background="IMG/simpson4.png" style="background-repeat: no-repeat;">
 	<div class="wrap">
-		<h1>자유게시판 / 글쓰기</h1>
+		<h1 style="color:black">자유게시판 / 글쓰기</h1>
 		<h5>*는 필수입력 항목입니다.</h5>
 		<form name="frm" action="board" method="post">
 			<input type="hidden" name="command" value="board_write">

@@ -46,6 +46,9 @@
 		.writer{
 			display: none;
 		}
+		.non{
+			width: 0px;
+		}
 	</style>
 	<script type="text/javascript">
 	
@@ -86,28 +89,28 @@
 	}
 	</script>
 </head>
-<body>
+<body background="IMG/simpson2.png" style="background-repeat: no-repeat;">
 	<div class="wrap">
 		<table>
 			<tr>
-				<th>작성자</th>
-				<td class="input">${board.name}</td>	
-				<th width="50px">조회수</th>
+				<td class="non">작성자</td>
+				<td class="input" width="200px"><span style="font-size: 14px; font: bold; color:black;">${board.name}</span></td>	
+				<td class="non">조회수</td>
 				<td width="50px">${board.readCount}</td>		
 			</tr>
 			<tr>
-				<th>제목</th>		
-				<td colspan="3">${board.title}</td>
+				<td class="non">제목</td>		
+				<td colspan="3"><span style="font-size: 14px; font: bold; color:black;">${board.title}</span></td>
 			</tr>
 			<tr>
-				<th>내용</th>		
-				<td colspan="3"><textarea readonly="readonly">${board.content}</textarea></td>
+				<td class="non">내용</td>		
+				<td colspan="3" width="90%"><textarea readonly="readonly" style="background-color:transparent;">${board.content}</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="3">
 					<input type="button" value="새 글쓰기" onclick="location.href='board.do?command=board_write_form'" style="margin-left: 20px">
 					<button onclick="modifyBoard();" style="margin-left: 30px" id="modify" class="writer">수정</button>
-					<button onclick="deleteBoard();" style="margin-left: 295px" id="delete" class="writer">삭제</button>
+					<button onclick="deleteBoard();" style="margin-left: 250px" id="delete" class="writer">삭제</button>
 				</td>
 				<td>
 					<input type="button" value="목록" onclick="location.href='board?command=board_list'" id="list">
@@ -116,31 +119,9 @@
 		</table>
 		<jsp:include page="comment.jsp">
 			<jsp:param name="num" value="${num}"/>
+			<jsp:param name="size" value="${size}"/>
 		</jsp:include>
 		<br>
 	</div>
-	<table class="list">
-		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>작성일</th>
-			<th>조회수</th>
-		</tr>
-		<c:forEach items="${boardList}" var="board">
-			<tr>
-				<td class="footer">${board.num}</td>
-				<td class="footer" style="text-align:left" width="250px"><a href="board?command=board_view&num=${board.num}">${board.title}</a></td>
-				<td class="footer">${board.name}</td>
-				<td class="footer">${board.writeDate}</td>
-				<td class="footer">${board.readCount}</td>
-			</tr>
-		</c:forEach>
-		<tr>
-			<td colspan="5" align="right">
-				<a href="board?command=board_write_form">게시글 등록</a>
-			</td>
-		</tr>	
-	</table>
 </body>
 </html>

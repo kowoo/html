@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="CSS/board2.css">
+<link rel="stylesheet" type="text/css" href="CSS/board.css">
 <title>회원가입</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -14,23 +14,32 @@
 	div, form, table {
 		margin: 0 auto;
 	}
+	table {
+		width: 20%;
+		text-align: left;
+	}
 	div {
 		text-align: center;
 	}
 	th {
+		text-align: center;
 		margin: 0px;
-		width: 100px;
+		width: 50px;
+	}
+	td {
+		width: 150px;
 	}
 	tr {
-		text-align: center;
 		margin-bottom: 15px;
 	}
 	.input {
-		width: 95%;
+		margin-left: 5px;
+		width: 60%;
 	}
 	span {
 		font-size: small;
 		color: red;
+		margin-left: 10px;
 	}
 	</style>
 	<script type="text/javascript">
@@ -54,13 +63,13 @@
 	});
 	</script>
 </head>
-<body>
+<body background="IMG/simpson5.png" style="background-repeat: no-repeat;">
 	<div class="wrap">
 		<h1>회원 가입</h1>
 		<h5>*는 필수입력 항목입니다.</h5>
 		<form name="frm" action="member" method="post">
 			<input type="hidden" name="command" value="member_join">
-			<table>
+			<table id="signTable">
 				<tr>
 					<th>*아이디</th>
 					<td><input type="text" id="id" name="id" class="input"><span class="span"></span></td>
@@ -75,11 +84,11 @@
 				</tr>
 				<tr>
 					<th>*이메일</th>
-					<td><input type="text" id="email" name="email" class="input"><span class="span"></span></td>
+					<td><input type="text" id="email" name="email" class="input"><br><span class="span"></span></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input style="margin-left: 10px" type="submit" value="가입">
+						<input style="margin-left: 100px" type="submit" value="가입">
 						<input style="margin-left: 100px" type="button" value="취소"
 							onclick="location.href='board?command=member_login_form'">
 					</td>

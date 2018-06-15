@@ -52,39 +52,25 @@
 						
 						(function(m) {
 							btn.on("click",function(){
-								$.ajax({
-									url:"comment?command=delete",
-									data: {"count":data[m].count},
-									type: "post",
-									dataType: "json",
-									success: function(data) {
-										createList();
-									}
-								});
+								var check = confirm("이 덧글을 삭제할까요?");
+								if(check) {
+									$.ajax({
+										url:"comment?command=comment_delete",
+										data: {"count":data[m].count},
+										type: "post",
+										dataType: "json",
+										success: function(data) {
+											createList();
+										}
+									});
+								}else {
+									return false;
+								}
 							});
 						})(i);
 					}
 				}
 			});
-		}
-		function delBtn() {
-			var check = confirm("이 글을 삭제할까요?");
-			if(check) {
-				$.ajax({
-					url: "comment?command=delete",
-					data: this.val(),
-					type: "post",
-					dataType: "json",
-					success: function(data) {
-						if(data.result) {
-							createList();
-						}else {
-						}
-					}
-				});
-			}else {
-				return false;
-			}
 		}
 	</script>
 	<style type="text/css">
@@ -118,7 +104,7 @@
 </head>
 <body>
 	<div id="wrap" align="center">
-		<h4>댓글 ["${title}"]개</h4>
+		<h4 id="cc">댓글 ${size}개</h4>
 		<table id="listTable" border="1">
 			<colgroup>
 				<col width="100px">

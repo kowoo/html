@@ -46,7 +46,7 @@
 	</script>
 	<title></title>
 </head>
-<body>
+<body background="IMG/simpson3.png" style="background-repeat: no-repeat;">
 	<div class="wrap">
 		<h1>게시글 수정하기</h1>
 		<h5>*는 필수입력 항목입니다.</h5>
@@ -56,7 +56,7 @@
 			<table>
 				<tr>
 					<th>*작성자</th>
-					<td><input type="text" id="name" name="name" class="input" value="${board.name}" readonly="readonly"><span class="span"></span></td>
+					<td><span class="span" id="name" class="input" style="color:black">${board.name}</span></td>
 				</tr>
 				<tr>
 					<th>*제목</th>
