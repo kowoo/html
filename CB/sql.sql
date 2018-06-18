@@ -1,9 +1,3 @@
---Server
-admin port 8007
-HTTP 8082
-AJP 8011
-
-
  페이징처리;
  select id,password,name,message
    from message
@@ -36,12 +30,13 @@ create table board2(
     content varchar2(1000),
     readCount number(30) default 0,
     comments number(20) default 0,
-    writeDate date default to_date(sysdate, 'yyyy/mm/dd hh24:mi:ss'));
+    writeDateString varchar2(40),
+    writeDate date default sysdate);
     
     alter table comment2 drop CONSTRAINT fk_board2_num;
     drop table comment2;
     drop table board2;
-    insert into board2 values (board_seq2.nextval,'첫번째 게시글','1번','첫번째 게시글 입니다.',0,0,0,sysdate);
+    insert into board2 values (board_seq2.nextval,'첫번째 게시글','3번','첫번째 게시글 입니다.',0,0,0,sysdate);
     
 create table member2(
 id varchar2(20) primary key,
@@ -56,13 +51,15 @@ alter table member2 add unique(name);
 create sequence member_seq2 start with 1 increment by 1 maxvalue 99999 cycle;    
 create sequence board_seq2 start with 1 increment by 1 maxvalue 99999 cycle;
 alter sequence board_seq2 increment by 1;
-insert into board2 values (board_seq2.nextval,'첫번째 게시글','1번','1','첫번째 게시글 입니다.',0,sysdate);
 
 select * from board2;
 select * from member2;
-select count as 
-delete from board2 where num=25;
+select count as ;
+delete from board2 where num=99999;
 commit;
+
+SELECT TO_CHAR(writeDate,'RRRR-MM-DD HH24:MM') "지금시간"
+  from board2 ;
 
 select * from (select rownum as rnum,b.id,b.name,b.content
          from (select id,name,content
@@ -83,3 +80,6 @@ create table comment2(
     writeDate date default sysdate,
     CONSTRAINT fk_comment2_num FOREIGN KEY (num) REFERENCES board2(num)
      ON DELETE CASCADE);
+     
+     select * from board2 where title
+    like 1 order by num desc;
