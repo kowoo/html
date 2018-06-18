@@ -59,7 +59,7 @@
 		}else {
 			$(".writer").hide();
 		}
-<%-- 		
+<%--
 		<% if(session.getAttribute("userId")!=null) {
 			%>
 			$(".login").show();

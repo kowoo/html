@@ -9,6 +9,7 @@ public interface BoardDao {
 	public int updateBoard(Board b, String userId);
 	public int deleteBoard(String num, String userId);
 	public Board selectBoard(String num);
+	public List<Board> searchBoards(String opt, String keyword);
 	public List<Board> selectAllBoard();
 	public List<Board> selectAllBoard(int firstRow, int endRow);
 	public int upReadCount(String num);

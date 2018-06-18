@@ -11,10 +11,11 @@ public class Board {
 	private int readCount;
 	private int comments;
 	private Date writeDate;
+	private String writeDateString;
 	public Board() {
 	}
 	public Board(int num, String writerId, String title, String name, String content, int readCount, int comments,
-			Date writeDate) {
+			Date writeDate, String writeDateString) {
 		super();
 		this.num = num;
 		this.writerId = writerId;
@@ -24,6 +25,7 @@ public class Board {
 		this.readCount = readCount;
 		this.comments = comments;
 		this.writeDate = writeDate;
+		this.writeDateString = writeDateString;
 	}
 	public int getNum() {
 		return num;
@@ -73,9 +75,16 @@ public class Board {
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
 	}
+	public String getWriteDateString() {
+		return writeDateString;
+	}
+	public void setWriteDateString(String writeDateString) {
+		this.writeDateString = writeDateString;
+	}
 	@Override
 	public String toString() {
 		return "Board [num=" + num + ", writerId=" + writerId + ", title=" + title + ", name=" + name + ", content="
-				+ content + ", readCount=" + readCount + ", comments=" + comments + ", writeDate=" + writeDate + "]";
+				+ content + ", readCount=" + readCount + ", comments=" + comments + ", writeDate=" + writeDate
+				+ ", writeDateString=" + writeDateString + "]";
 	}
 }

@@ -1,15 +1,11 @@
 package controller;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import controller.Action.Action;
 import controller.Action.BoardDeleteAction;
 import controller.Action.BoardListFormAction;
 import controller.Action.BoardModifyAction;
 import controller.Action.BoardModifyFormAction;
+import controller.Action.BoardSearchAction;
 import controller.Action.BoardViewFormAction;
 import controller.Action.BoardWriteAction;
 import controller.Action.BoardWriteFormAction;
@@ -35,6 +31,8 @@ public class ActionFactory{
 		//보드 액션
 		if(command.equals("board_list")) {
 			action= new BoardListFormAction();
+		}else if(command.equals("board_search")) {
+			action= new BoardSearchAction();
 		}else if(command.equals("board_write_form")) {
 			action= new BoardWriteFormAction();
 		}else if(command.equals("board_write")) {
@@ -69,6 +67,8 @@ public class ActionFactory{
 			action = new MemberViewFormAction();
 		}else if(command.equals("member_delete")) {
 			action = new MemberDeleteAction();
+		}else if(command.equals("member_view")) {
+			action = new MemberDeleteAction();
 		}
 		//멤버 액션
 		
@@ -83,10 +83,5 @@ public class ActionFactory{
 		//코멘트 액션
 		
 		return action;
-	}
-	
-	public interface Action {
-		public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
-		//이런 액션들을 처리클래스, 핸들러라고 한다
 	}
 }

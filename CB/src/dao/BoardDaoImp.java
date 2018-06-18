@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import model.Board;
@@ -122,7 +124,10 @@ public class BoardDaoImp implements BoardDao {
 				board.setName(rs.getString("name"));
 				board.setContent(rs.getString("content"));
 				board.setReadCount(rs.getInt("readCount"));
-				board.setWriteDate(rs.getDate("writeDate"));
+				Date date = rs.getDate("writeDate");
+				SimpleDateFormat f = new SimpleDateFormat("yyyy/mm/dd hh24:mm:ss");
+				board.setWriteDate(date);
+				board.setWriteDateString(f.format(date));
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -138,8 +143,9 @@ public class BoardDaoImp implements BoardDao {
 		return board;
 	}
 	@Override
-	public List<Board> selectAllBoard() {
-		String sql="select * from board2 order by num desc";
+	public List<Board> searchBoards(String opt, String keyword) {
+		String sql="select * from board2 where "+opt
+				+ " like ? order by num desc";
 		Connection connection=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -148,6 +154,7 @@ public class BoardDaoImp implements BoardDao {
 			list = new ArrayList<Board>();
 			connection = ConnectionProvider.getConnection();
 			pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, "%"+keyword+"%");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Board board = new Board();
@@ -250,6 +257,46 @@ public class BoardDaoImp implements BoardDao {
 				board.setReadCount(rs.getInt("readCount"));
 				board.setComments(rs.getInt("comments"));
 				board.setWriteDate(rs.getDate("writeDate"));
+				Date date = rs.getDate("writeDate");
+				board.setWriteDate(date);
+				list.add(board);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null) connection.close();
+				if (pstmt != null) pstmt.close();
+				if (rs != null) rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	@Override
+	public List<Board> selectAllBoard() {
+		String sql = "select * from board2";
+		Connection connection=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<Board> list=null;
+		try {
+			list = new ArrayList<Board>();
+			connection = ConnectionProvider.getConnection();
+			pstmt = connection.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Board board = new Board();
+				board.setNum(rs.getInt("num"));
+				board.setTitle(rs.getString("title"));
+				board.setName(rs.getString("name"));
+				board.setContent(rs.getString("content"));
+				board.setReadCount(rs.getInt("readCount"));
+				board.setComments(rs.getInt("comments"));
+				board.setWriteDate(rs.getDate("writeDate"));
+				Date date = rs.getDate("writeDate");
+				board.setWriteDate(date);
 				list.add(board);
 			}
 		} catch (ClassNotFoundException | SQLException e) {

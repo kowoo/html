@@ -8,29 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="CSS/board.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>게시판</title>
-<!-- 	<style type="text/css">
-		table{
-			text-align: center;
-			border: 1px solid black;
-			width: 50%;
-			padding: 20px;
-		}
-		th{
-			border: 1px solid gray;
-		}
-		
-	
-	</style> -->
-	
-	<style type="text/css">
-		table{
-			text-align: center;
-		}
-		.title{
-			text-align: left;
-		}
-		
-	</style>
+	<script type="text/javascript">
+	</script>
 </head>
 <body>
 	<div id="wrap" align="center">

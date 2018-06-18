@@ -6,27 +6,6 @@
 <link rel="stylesheet" type="text/css" href="css/board.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-<!-- 	<style type="text/css">
-		div, form, table{
-			margin: 0 auto;
-		}
-		div{
-			text-align: center;
-		}
-		th{
-			margin: 0px;
-		}
-		tr{
-			text-align: left;
-			margin-bottom: 15px;
-		}
-		textarea {
-			width: 400px;
-			height: 200px;
-		}
-		
-	
-	</style> -->
 </head>
 <body>
 	<!-- 글 수정 폼 -->
