@@ -9,23 +9,37 @@
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous">
 	</script>
-<title>${id}님의 정보</title>
+	<style type="text/css">
+		th{
+			background-color: black;
+			color: white;
+		}	
+	</style>
+<title>${m.name}님의 정보</title>
 </head>
 <body>
 	<table>
 		<tr>
 			<th>아이디</th>
-			<th>닉네임</th>
-			<th>가입일</th>
-			<th>작성한 게시글</th>
-			<th>작성한 덧글</th>
+			<td>${m.id}</td>
 		</tr>
 		<tr>
-			<td>${m.id}</td>
+			<th>닉네임</th>
 			<td>${m.name}</td>
+		</tr>
+		<tr>
+			<th>가입일</th>
 			<td>${m.regDate}</td>
-			<td>${m.boardw}</td>
-			<td>${m.commentw}</td>
+		</tr>
+		<tr>
+			<th>작성한 게시글 수</th>
+			<td>${m.boardW}</td>
+		</tr>
+		<tr>
+			<th>작성한 덧글 수</th>
+			<td>${m.commentW}</td>
+		</tr>
+		<tr>
 		</tr>
 	</table>
 </body>

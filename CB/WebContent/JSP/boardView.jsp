@@ -15,22 +15,27 @@
 	<script type="text/javascript">
 		$(function(){
 			<%-- 수정 및 삭제 버튼은 작성자가 접근했을 경우에만 생성한다.--%>
-			if(("${writerId}")==("${userId}")) {
-				$(".writer").show();
-			}else {
-				$(".writer").hide();
-			}
 		});	
 		function deleteBoard() {
-			var check = confirm("이 글을 삭제할까요?");
-			if(check) {
-				location.href ='board?command=board_delete&num=${board.num}';
-			} else {
+			if(("${writerId}")==("${userId}")) {
+				var check = confirm("이 글을 삭제할까요?");
+				if(check) {
+					location.href ='board?command=board_delete&num=${board.num}';
+				} else {
+					return false;
+				}
+			}else {
+				alert("작성자만 수정할 수 있습니다.");
 				return false;
 			}
 		}
 		function modifyBoard() {
-			location.href ='board?command=board_modify_form&num=${board.num}';
+			if(("${writerId}")==("${userId}")) {
+				location.href ='board?command=board_modify_form&num=${board.num}';
+			}else {
+				alert("작성자만 수정할 수 있습니다.");
+				return false;
+			}
 		}
 	</script>
 </head>

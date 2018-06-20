@@ -18,8 +18,10 @@ public class MemberViewFormAction implements Action {
 		System.out.println(name);
 		MemberDao dao = MemberDaoImp.getInstance();
 		Member m = dao.selectMemberbyName(name);
-		System.out.println(m);
-		
+		if(m==null) {
+			m = new Member();
+			m.setId("탈퇴한 회원");
+		}
 		req.setAttribute("m", m);
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
